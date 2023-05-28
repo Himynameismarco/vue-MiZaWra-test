@@ -1,6 +1,17 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* color palette for light-mode */
 :root {
-  --vt-c-white: #ffffff;
+  /* background color light-mode*/
+  --bg-lm: #FBFBFB;
+  /* MiZaWra Black */
+  --black: #252626;
+
+  /* MiZaWra mode colors */
+  --mode-blue: 3060FF;
+  --mode-green: CDE82B;
+  --mode-salmon: FDCAB9;
+
+
+/*
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
@@ -17,13 +28,17 @@
 
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-1: var(--bg-lm);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+ */
 }
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
+  --color-background: var(--bg-lm);
+  --color-heading: var(--black);
+  /*
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 
@@ -31,22 +46,18 @@
   --color-border-hover: var(--vt-c-divider-light-1);
 
   --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+   */
+
+  --color-text: var(--black);
 
   --section-gap: 160px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+    /* TODO: Add darkmode here */
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
   }
 }
 
