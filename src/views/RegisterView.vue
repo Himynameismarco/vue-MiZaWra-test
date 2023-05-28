@@ -59,6 +59,15 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 .sub-password {
   font-size: var(--font-size-label);
 }
+@media (max-width: 1024px) {
+  .register {
+    grid-area: 2 / 2 / 5 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
 
 </style>
 

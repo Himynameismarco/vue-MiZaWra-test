@@ -5,7 +5,7 @@
     </div>
     <!-- <HelloWorld msg="You did it!" /> -->
     <div class="menu">
-      <RouterLink to="/register"> <img src="@/assets/Icon-Darkmode.svg"></RouterLink>
+      <RouterLink to="/register" class="icon"> <img src="@/assets/Icon-Darkmode.svg"></RouterLink>
       <RouterLink to="/about">Log In</RouterLink>
       <RouterLink to="/register">Sign Up</RouterLink>
     </div>
@@ -22,6 +22,12 @@ nav {
   justify-content: space-between;
   width: 100%;
   margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    grid-area: 1 / 1 / 2 / 6;
+  }
 }
 
 nav a.router-link-exact-active {
@@ -42,12 +48,12 @@ nav a:first-of-type {
 }
 
 nav .icon {
-
+  padding-top: 5px;
 }
 nav .menu {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
 }
 
 nav .logo {
