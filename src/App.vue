@@ -4,37 +4,31 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <!-- TODO: Update to MiZaWra-Standard-Header -->
+  <nav>
+    <div class="logo">
+      <img alt="MiZaWra logo" src="@/assets/logo-mizawra.svg" width="157" />
     </div>
-  </header>
+    <!-- <HelloWorld msg="You did it!" /> -->
+    <div class="menu">
+      <RouterLink to="/"><img src="@/assets/Icon-Home.svg"></RouterLink>
+      <RouterLink to="/register"> <img src="@/assets/Icon-Darkmode.svg"></RouterLink>
+      <RouterLink to="/about">Settings</RouterLink>
+      <RouterLink to="/about">Log Out</RouterLink>
+    </div>
+
+  </nav>
 
   <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
 nav {
+  grid-area: 1 / 1 / 2 / 12;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
   margin-top: 2rem;
 }
 
@@ -47,7 +41,6 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
-  display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
 }
@@ -56,30 +49,23 @@ nav a:first-of-type {
   border: 0;
 }
 
+nav .icon {
+
+}
+nav .menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+}
+
+
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
 </style>
