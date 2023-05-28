@@ -1,5 +1,8 @@
+<script setup lang="ts">
+import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
+</script>
 <template>
-
+  <NavBarLoggedIn />
   <div class="register">
     <div class="heading">
       <h1>Create an account</h1>
@@ -18,12 +21,6 @@
     </form>
   </div>
 </template>
-
-<script>
-export default {
-  name: "RegisterView.vue"
-}
-</script>
 
 
 <style scoped>

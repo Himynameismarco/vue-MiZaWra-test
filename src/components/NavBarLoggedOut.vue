@@ -5,10 +5,9 @@
     </div>
     <!-- <HelloWorld msg="You did it!" /> -->
     <div class="menu">
-      <RouterLink to="/"><img src="@/assets/Icon-Home.svg"></RouterLink>
       <RouterLink to="/register"> <img src="@/assets/Icon-Darkmode.svg"></RouterLink>
-      <RouterLink to="/about">Settings</RouterLink>
-      <RouterLink to="/about">Log Out</RouterLink>
+      <RouterLink to="/about">Log In</RouterLink>
+      <RouterLink to="/register">Sign Up</RouterLink>
     </div>
 
   </nav>
