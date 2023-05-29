@@ -73,12 +73,6 @@ nav {
   width: 100%;
 }
 
-@media (max-width: 1024px) {
-  nav {
-    grid-area: 1 / 1 / 2 / 6;
-  }
-}
-
 nav a.router-link-exact-active {
   color: var(--color-text);
 }

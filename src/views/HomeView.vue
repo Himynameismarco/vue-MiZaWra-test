@@ -8,7 +8,21 @@ import { useElementSize } from '@vueuse/core'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
-const posts = 12;
+const posts = 12
+
+let count = ref(0)
+let hover = false
+
+function changeBackground(event) {
+  if (hover) {
+    let bg = 'linear-gradient(0deg, rgba(205,232,43,1) 0%, rgba(251,251,251,1) 80%)'
+    document.body.style.setProperty('background', bg);
+    hover = false;
+  } else {
+    document.body.style.setProperty('background', 'var(--color-background)');
+  }
+}
+
 
 </script>
 
@@ -19,7 +33,7 @@ const posts = 12;
     <h3>Choose Between Three Writing Modes</h3>
   </div>
   <div class="mode-picker">
-    <div class="mode" id="free">
+    <div @mouseover="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
       <img class="icon" src="@/assets/prompt-circle-green.svg">
       <button>Free Journal</button>
     </div>
@@ -110,10 +124,6 @@ button {
   row-gap: 3vh;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-#free:hover {
-
 }
 
 </style>
