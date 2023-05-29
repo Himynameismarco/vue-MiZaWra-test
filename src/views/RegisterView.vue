@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
+import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 </script>
 <template>
-  <NavBarLoggedIn />
+  <NavBarLoggedOut />
   <div class="register">
     <div class="heading">
-      <h1>Create an account</h1>
-      <p class="subtitle-register">Already have an Account? <a>Log In</a></p>
+      <h1 class="heading-logged-out">Create an Account</h1>
+      <h3 class="heading-logged-out">Already have an Account? <a>Log In</a></h3>
     </div>
     <form class="register-form" action="register" method="post">
       <label for="firstName">First name</label>
@@ -24,13 +24,6 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 
 
 <style scoped>
-
-.subtitle-register {
-  font-size: 1rem;
-  line-height: 25px;
-  letter-spacing: 0.03em;
-  text-align: left;
-}
 
 .register {
   grid-area: 3 / 4 / 10 / 9;

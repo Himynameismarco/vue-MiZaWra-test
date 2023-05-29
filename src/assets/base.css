@@ -2,6 +2,13 @@
 :root {
   /* background color light-mode*/
   --bg-lm: #FBFBFB;
+
+  /* background element light-mode*/
+  --element-bg-lm: #FFFFF;
+
+  /* border color light-mode */
+  --element-border-color-lm: rgba(102, 102, 102, 10%);
+
   /* MiZaWra Colors */
   --black: #252626;
   --dark-gray: #9E9E9E;
@@ -13,14 +20,31 @@
 
 }
 
+/* semantic sizes */
+
+:root {
+  --font-size-large: 2rem;
+  --font-size-medium: 1rem;
+  --font-size-label: .8rem;
+
+  --button-width-modes: 20vw;
+  --button-width-half-modes: calc(var(--button-width-modes) / 2);
+  --button-height-modes: 12vh;
+  --prompt-circle-top-space: -50px;
+
+  --card-height: 24vh;
+  --card-width: var(--button-width-modes);
+
+  --logged-in-border-width: 0.5px;
+
+}
+
 /* semantic color variables for this project */
 :root {
   --color-background: var(--bg-lm);
   --color-heading: var(--black);
   --color-text: var(--black);
   --color-input-borders: var(--dark-gray);
-
-  --font-size-label: .8rem;
 
   --section-gap: 160px;
 }
@@ -44,10 +68,11 @@
 body {
   color: var(--color-text);
   background: var(--color-background);
+  element-background: var(--element-bg-lm);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
