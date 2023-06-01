@@ -27,15 +27,19 @@
   --font-size-medium: 1rem;
   --font-size-label: .8rem;
 
-  --button-width-modes: 20vw;
+  --button-width-modes: 354px;
+  --gap-width-modes: 24px;
   --button-width-half-modes: calc(var(--button-width-modes) / 2);
-  --button-height-modes: 12vh;
+  --button-height-modes: 122px;
   --prompt-circle-top-space: -50px;
+  --prompt-circle-size: 70px;
 
   --card-height: 24vh;
   --card-width: var(--button-width-modes);
 
   --logged-in-border-width: 0.5px;
+
+  --gradient-color-green: linear-gradient(0deg, rgba(205,232,43,1) 0%, rgba(251,251,251,1) 80%);
 
 }
 

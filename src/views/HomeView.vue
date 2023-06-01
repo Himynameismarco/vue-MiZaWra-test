@@ -15,7 +15,7 @@ let hover = false
 
 function changeBackground(event) {
   if (hover) {
-    let bg = 'linear-gradient(0deg, rgba(205,232,43,1) 0%, rgba(251,251,251,1) 80%)'
+    let bg = 'var(--gradient-color-green)'
     document.body.style.setProperty('background', bg);
     hover = false;
   } else {
@@ -34,11 +34,11 @@ function changeBackground(event) {
   </div>
   <div class="mode-picker">
     <div @mouseover="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
-      <img class="icon" src="@/assets/prompt-circle-green.svg">
+      <img class="icon" src="@/assets/prompt-circle-blue.svg">
       <button>Free Journal</button>
     </div>
     <div class="mode" id="prompted">
-      <img class="icon" src="@/assets/prompt-circle-blue.svg">
+      <img class="icon" src="@/assets/prompt-circle-green.svg">
       <button>Prompted Journal</button>
     </div>
     <div class="mode" id="story">
@@ -71,7 +71,8 @@ function changeBackground(event) {
 <style scoped>
 
 .mode-picker {
-  grid-area: 5 / 2 / 6 / 11;
+  grid-area: 5 / 2 / 6 / 5;
+  column-gap: var(--gap-width-modes);
   display: flex;
   justify-content: space-between;
 }
@@ -92,6 +93,7 @@ function changeBackground(event) {
 .mode .icon {
   position: absolute;
   top: var(--prompt-circle-top-space);
+  height: var(--prompt-circle-size);
 }
 
 button {
@@ -119,9 +121,10 @@ button {
 
 .card-grid {
   position: relative;
-  grid-area: 7 / 2 / 15 / 11;
+  grid-area: 7 / 2 / 15 / 5;
   display: flex;
-  row-gap: 3vh;
+  column-gap: var(--gap-width-modes);
+  row-gap: var(--gap-width-modes);
   justify-content: space-between;
   flex-wrap: wrap;
 }

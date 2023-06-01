@@ -4,15 +4,15 @@
   margin: 0 auto;
   display: grid;
   padding: 0 2em;
-  grid-template-columns: 2fr repeat(9, 1fr) 2fr; /* 13 */
-  grid-template-rows: .75fr repeat(14, 1fr); /* 15 */
+  grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 13 */
+  grid-template-rows: 60px 125px repeat(3, 1fr) 223px; /* 15 */
 }
 
 h1 {
   font-size: var(--font-size-large);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.1em;
+  letter-spacing: 10px;
   text-align: center;
 }
 
@@ -50,6 +50,7 @@ label {
 }
 
 input {
+  background-color: transparent;
   border-radius: 10px;
   height: 7vh;
   border-color: var(--dark-gray);
@@ -67,7 +68,7 @@ input {
 /* Nav-Bar */
 
 nav {
-  grid-area: 1 / 1 / 2 / 12;
+  grid-area: 1 / 1 / 2 / 6;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -83,7 +84,6 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
@@ -114,7 +114,7 @@ nav .logo {
 .instructions {
   display: flex;
   flex-direction: column;
-  grid-area: 3 / 1 / 4 / 12;
+  grid-area: 3 / 1 / 4 / 6;
   align-items: center;
 }
 
