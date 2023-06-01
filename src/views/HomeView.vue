@@ -16,21 +16,17 @@ let hover = false
 function changeBackground(event) {
   console.log("hover: " + hover)
   console.log("event.target.id: " + event.target.id);
+  const modes = ['free', 'prompted', 'story'];
   if (hover) {
     switch (event.target.id) {
-      case 'free':
+      case modes[0]:
         document.body.style.setProperty('background', 'var(--gradient-color-blue)');
         break;
-      case 'prompted':
+      case modes[1]:
         document.body.style.setProperty('background', 'var(--gradient-color-green)');
         break;
-      case 'story':
+      case modes[2]:
         document.body.style.setProperty('background', 'var(--gradient-color-salmon)');
-        /*const elements = document.querySelectorAll('.item');
-        elements.forEach((element) => {
-          console.log("element:" + element);
-          element.style.background = 'var(--element-bg-lm)';
-        })*/
         break;
       default:
         break;
@@ -52,15 +48,21 @@ function changeBackground(event) {
   </div>
   <div class="mode-picker">
     <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
-      <img class="icon" src="@/assets/prompt-circle-blue.svg">
+      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
+      </svg>
       <button>Free Journal</button>
     </div>
     <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
-      <img class="icon" src="@/assets/prompt-circle-green.svg">
+      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
+      </svg>
       <button>Prompted Journal</button>
     </div>
     <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
-      <img class="icon" src="@/assets/prompt-circle-nude.svg">
+      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
+      </svg>
       <button>Story</button>
     </div>
   </div>
@@ -99,14 +101,6 @@ function changeBackground(event) {
   position: relative;
   display: flex;
   justify-content: center;
-  background: var(--element-bg-lm);
-  border-width: var(--logged-in-border-width);
-  border-style: solid;
-  border-color: var(--element-border-color-lm);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  width: var(--button-width-modes);
-  height: var(--button-height-modes);
 }
 
 .mode .icon {
@@ -116,13 +110,23 @@ function changeBackground(event) {
 }
 
 button {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
+  border-width: var(--logged-in-border-width);
+  border-style: solid;
+  border-color: var(--element-border-color-lm);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  width: var(--button-width-modes);
+  height: var(--button-height-modes);
+  background: var(--element-bg-lm);
   font-size: var(--font-size-medium);
   letter-spacing: 0.01em;
   text-transform: uppercase;
+}
+
+#free:hover #free-svg,
+#prompted:hover #prompted-svg,
+#story:hover #story-svg {
+  fill-rule: nonzero;
 }
 
 .archive {

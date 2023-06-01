@@ -12,7 +12,6 @@
 <style scoped>
 
 .item {
-  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--element-bg-lm);

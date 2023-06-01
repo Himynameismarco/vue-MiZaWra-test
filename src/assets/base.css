@@ -4,7 +4,7 @@
   --bg-lm: #FBFBFB;
 
   /* background element light-mode*/
-  --element-bg-lm: #FFFFF;
+  --element-bg-lm: #FFFFFF;
 
   /* border color light-mode */
   --element-border-color-lm: rgba(102, 102, 102, 10%);
@@ -73,7 +73,6 @@
 body {
   color: var(--color-text);
   background-color: var(--color-background);
-  element-background: var(--element-bg-lm);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
