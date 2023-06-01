@@ -39,8 +39,9 @@
 
   --logged-in-border-width: 0.5px;
 
-  --gradient-color-green: linear-gradient(0deg, rgba(205,232,43,1) 0%, rgba(251,251,251,1) 80%);
-
+  --gradient-color-blue: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(48, 96, 255, 0.4) 0%, rgba(251, 251, 251, 0.4) 100%);
+  --gradient-color-green: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(205, 232, 43, 0.5) 0%, rgba(251, 251, 251, 0.5) 100%);
+  --gradient-color-salmon: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(253, 202, 185, 0.95) 0%, rgba(251, 251, 251, 0.95) 100%);
 }
 
 /* semantic color variables for this project */
@@ -71,7 +72,7 @@
 
 body {
   color: var(--color-text);
-  background: var(--color-background);
+  background-color: var(--color-background);
   element-background: var(--element-bg-lm);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;

@@ -14,9 +14,27 @@ let count = ref(0)
 let hover = false
 
 function changeBackground(event) {
+  console.log("hover: " + hover)
+  console.log("event.target.id: " + event.target.id);
   if (hover) {
-    let bg = 'var(--gradient-color-green)'
-    document.body.style.setProperty('background', bg);
+    switch (event.target.id) {
+      case 'free':
+        document.body.style.setProperty('background', 'var(--gradient-color-blue)');
+        break;
+      case 'prompted':
+        document.body.style.setProperty('background', 'var(--gradient-color-green)');
+        break;
+      case 'story':
+        document.body.style.setProperty('background', 'var(--gradient-color-salmon)');
+        /*const elements = document.querySelectorAll('.item');
+        elements.forEach((element) => {
+          console.log("element:" + element);
+          element.style.background = 'var(--element-bg-lm)';
+        })*/
+        break;
+      default:
+        break;
+    }
     hover = false;
   } else {
     document.body.style.setProperty('background', 'var(--color-background)');
@@ -33,15 +51,15 @@ function changeBackground(event) {
     <h3>Choose Between Three Writing Modes</h3>
   </div>
   <div class="mode-picker">
-    <div @mouseover="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
+    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
       <img class="icon" src="@/assets/prompt-circle-blue.svg">
       <button>Free Journal</button>
     </div>
-    <div class="mode" id="prompted">
+    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
       <img class="icon" src="@/assets/prompt-circle-green.svg">
       <button>Prompted Journal</button>
     </div>
-    <div class="mode" id="story">
+    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
       <img class="icon" src="@/assets/prompt-circle-nude.svg">
       <button>Story</button>
     </div>
