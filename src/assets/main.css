@@ -6,6 +6,12 @@
   padding: 0 2em;
   grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 13 */
   grid-template-rows: 60px 125px repeat(3, 1fr) 223px; /* 15 */
+
+}
+
+@media (max-width: 1200px) {
+
+  /* TODO: responsive  */
 }
 
 h1 {

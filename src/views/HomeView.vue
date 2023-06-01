@@ -83,6 +83,7 @@ function changeBackground(event) {
   justify-content: center;
   background: var(--element-bg-lm);
   border-width: var(--logged-in-border-width);
+  border-style: solid;
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 30px;

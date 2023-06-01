@@ -6,7 +6,7 @@
     <!-- <HelloWorld msg="You did it!" /> -->
     <div class="menu">
       <RouterLink to="/" class="icon"><img src="@/assets/Icon-Home.svg"></RouterLink>
-      <RouterLink to="/register" class="icon"> <img src="@/assets/Icon-Darkmode.svg"></RouterLink>
+      <RouterLink to="/register" class="icon"> <img src="@/assets/icon-darklight-switch.svg"></RouterLink>
       <RouterLink to="/about">Settings</RouterLink>
       <RouterLink to="/about">Log Out</RouterLink>
     </div>

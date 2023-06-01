@@ -26,7 +26,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 <style scoped>
 
 .register {
-  grid-area: 3 / 4 / 10 / 9;
+  grid-area: 3 / 2 / 10 / 5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

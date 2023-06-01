@@ -19,6 +19,7 @@
   border-width: var(--logged-in-border-width);
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-style: solid;
   border-radius: 30px;
   padding: 2vh 2vw 2vh 2vw;
   width: var(--card-width);
