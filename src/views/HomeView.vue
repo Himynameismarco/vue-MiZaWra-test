@@ -2,9 +2,9 @@
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import HomeCardPost from '../components/HomeCardPost.vue'
 
-
 import { ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
+import { toggleTheme } from '../composables/toggleDark.ts'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
@@ -14,8 +14,6 @@ let count = ref(0)
 let hover = false
 
 function changeBackground(event) {
-  console.log("hover: " + hover)
-  console.log("event.target.id: " + event.target.id);
   const modes = ['free', 'prompted', 'story'];
   if (hover) {
     switch (event.target.id) {
@@ -109,7 +107,7 @@ function changeBackground(event) {
   height: var(--prompt-circle-size);
 }
 
-button {
+.mode button {
   border-width: var(--logged-in-border-width);
   border-style: solid;
   border-color: var(--element-border-color-lm);

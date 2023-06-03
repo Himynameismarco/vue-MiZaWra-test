@@ -112,6 +112,11 @@ nav .logo {
   margin: 0;
 }
 
+button {
+  border-style: none;
+  background-color: transparent;
+}
+
 
 
 /* No mode selected yet */

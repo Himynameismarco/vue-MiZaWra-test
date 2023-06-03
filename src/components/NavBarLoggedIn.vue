@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { themeSwitch } from '../composables/toggleTheme.ts'
+
+</script>
+
 <template>
   <nav>
     <div class="logo">
@@ -6,7 +11,7 @@
     <!-- <HelloWorld msg="You did it!" /> -->
     <div class="menu">
       <RouterLink to="/" class="icon"><img src="@/assets/Icon-Home.svg"></RouterLink>
-      <RouterLink to="/register" class="icon"> <img src="@/assets/icon-darklight-switch.svg"></RouterLink>
+      <button @click="themeSwitch.toggleTheme()"><img src="@/assets/icon-darklight-switch.svg"></button>
       <RouterLink to="/about">Settings</RouterLink>
       <RouterLink to="/about">Log Out</RouterLink>
     </div>

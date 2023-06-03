@@ -54,12 +54,8 @@
   --section-gap: 160px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-
-    /* TODO: Add darkmode here */
-
-  }
+:root.dark-theme {
+  --color-background: black;
 }
 
 *,
