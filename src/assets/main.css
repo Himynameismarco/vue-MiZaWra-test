@@ -113,6 +113,7 @@ nav .logo {
 }
 
 button {
+  color: inherit;
   border-style: none;
   background-color: transparent;
 }

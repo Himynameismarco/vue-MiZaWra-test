@@ -14,7 +14,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  background: var(--element-bg-lm);
+  background: var(--element-bg);
   border-width: var(--logged-in-border-width);
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);

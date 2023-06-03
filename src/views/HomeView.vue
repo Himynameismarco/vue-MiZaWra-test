@@ -115,7 +115,7 @@ function changeBackground(event) {
   border-radius: 30px;
   width: var(--button-width-modes);
   height: var(--button-height-modes);
-  background: var(--element-bg-lm);
+  background: var(--element-bg);
   font-size: var(--font-size-medium);
   letter-spacing: 0.01em;
   text-transform: uppercase;
