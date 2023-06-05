@@ -51,6 +51,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 
 .sub-password {
   font-size: var(--font-size-label);
+  font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 @media (max-width: 1024px) {
   .register {

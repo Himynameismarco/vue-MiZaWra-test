@@ -30,6 +30,7 @@
 }
 
 .preview {
+  font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   padding: 1vh 0vw 1vh 0vw;
 }
 
