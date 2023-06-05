@@ -21,10 +21,56 @@
   --mode-green: CDE82B;
   --mode-salmon: FDCAB9;
 
+  /* Gradient background-colors when hovering */
+  --gradient-color-blue-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(48, 96, 255, 0.4) 0%, rgba(251, 251, 251, 0.4) 100%);
+  --gradient-color-green-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(205, 232, 43, 0.5) 0%, rgba(251, 251, 251, 0.5) 100%);
+  --gradient-color-salmon-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(253, 202, 185, 0.95) 0%, rgba(251, 251, 251, 0.95) 100%);
+
+  --gradient-color-blue-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #1A3696 0%, #0D0E10 100%);
+  --gradient-color-green-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #788142 0%, #0D0E10 100%);
+  --gradient-color-salmon-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #A67C6F 0%, #0D0E10 100%);
+
 }
 
-/* semantic sizes */
+/* assign variables for light mode */
+:root {
+  --color-background: var(--bg-lm);
+  --color-heading: var(--black);
+  --color-text: var(--black);
+  --color-input-borders: var(--dark-gray);
 
+  --element-bg: var(--element-bg-lm);
+
+  --gradient-color-blue: var(--gradient-color-blue-lm);
+  --gradient-color-green: var(--gradient-color-green-lm);
+  --gradient-color-salmon: var(--gradient-color-salmon-lm);
+
+  /* set attributes */
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+
+}
+
+/* assign variables for dark mode */
+:root.dark-theme {
+  --color-background: var(--bg-dm);
+  --color-heading: var(--white);
+  --color-text: var(--white);
+  --color-input-borders: var(--dark-gray);
+
+  --element-bg: var(--element-bg-dm);
+
+  --gradient-color-blue: var(--gradient-color-blue-dm);
+  --gradient-color-green: var(--gradient-color-green-dm);
+  --gradient-color-salmon: var(--gradient-color-salmon-dm);
+
+  /* set attributes */
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* non-theme-specific variables */
 :root {
   --font-size-large: 2rem;
   --font-size-medium: 1rem;
@@ -41,30 +87,7 @@
   --card-width: var(--button-width-modes);
 
   --logged-in-border-width: 0.5px;
-
-  --gradient-color-blue: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(48, 96, 255, 0.4) 0%, rgba(251, 251, 251, 0.4) 100%);
-  --gradient-color-green: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(205, 232, 43, 0.5) 0%, rgba(251, 251, 251, 0.5) 100%);
-  --gradient-color-salmon: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(253, 202, 185, 0.95) 0%, rgba(251, 251, 251, 0.95) 100%);
-}
-
-/* light mode */
-:root {
-  --color-background: var(--bg-lm);
-  --color-heading: var(--black);
-  --color-text: var(--black);
-  --color-input-borders: var(--dark-gray);
-
-  --element-bg: var(--element-bg-lm);
-
   --section-gap: 160px;
-}
-
-:root.dark-theme {
-  --color-background: var(--bg-dm);
-  --color-heading: var(--white);
-  --color-text: var(--white);
-
-  --element-bg: var(--element-bg-dm);
 }
 
 *,
@@ -76,8 +99,6 @@
 }
 
 body {
-  color: var(--color-text);
-  background-color: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

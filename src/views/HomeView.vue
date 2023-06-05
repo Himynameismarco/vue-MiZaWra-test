@@ -4,7 +4,6 @@ import HomeCardPost from '../components/HomeCardPost.vue'
 
 import { ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { toggleTheme } from '../composables/toggleDark.ts'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
@@ -14,24 +13,25 @@ let count = ref(0)
 let hover = false
 
 function changeBackground(event) {
+  console.log("changeBackground executed")
   const modes = ['free', 'prompted', 'story'];
   if (hover) {
     switch (event.target.id) {
       case modes[0]:
-        document.body.style.setProperty('background', 'var(--gradient-color-blue)');
+        document.documentElement.style.setProperty('background', 'var(--gradient-color-blue)');
         break;
       case modes[1]:
-        document.body.style.setProperty('background', 'var(--gradient-color-green)');
+        document.documentElement.style.setProperty('background', 'var(--gradient-color-green)');
         break;
       case modes[2]:
-        document.body.style.setProperty('background', 'var(--gradient-color-salmon)');
+        document.documentElement.style.setProperty('background', 'var(--gradient-color-salmon)');
         break;
       default:
         break;
     }
     hover = false;
   } else {
-    document.body.style.setProperty('background', 'var(--color-background)');
+    document.documentElement.style.setProperty('background', 'var(--color-background)');
   }
 }
 
