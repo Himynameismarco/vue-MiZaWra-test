@@ -88,10 +88,6 @@ nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-nav a {
-  padding: 0 1rem;
-}
-
 nav a:first-of-type {
   border: 0;
 }
@@ -100,6 +96,11 @@ nav .menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  column-gap: 30px;
+}
+
+nav .menu svg {
+  margin-top: 5px;
 }
 
 nav .logo {
