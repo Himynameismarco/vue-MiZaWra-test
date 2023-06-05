@@ -5,7 +5,7 @@
   display: grid;
   padding: 0 2em;
   grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 13 */
-  grid-template-rows: 60px 125px repeat(3, 1fr) 223px; /* 15 */
+  grid-template-rows: 60px 125px 54px 223px repeat(2, 1fr); /* 15 */
 
 }
 
@@ -15,6 +15,7 @@
 }
 
 h1 {
+  margin: 0;
   font-size: var(--font-size-large);
   font-weight: 400;
   font-style: normal;
@@ -32,6 +33,8 @@ h2 {
 
 /* Used for Subtitles*/
 h3 {
+  margin-top: 20px;
+  margin-bottom: 0;
   font-size: var(--font-size-medium);
   line-height: 25px;
   letter-spacing: 0.03em;
@@ -77,6 +80,7 @@ nav {
   grid-area: 1 / 1 / 2 / 6;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
 }
 
@@ -103,6 +107,17 @@ nav .menu svg {
   margin-top: 5px;
 }
 
+nav .menu .icons {
+  display: flex;
+  column-gap: 25px;
+  align-items: center;
+}
+
+nav .menu .icons button {
+  padding: 0;
+}
+
+
 nav .logo {
   display: flex;
   justify-content: flex-start;
@@ -114,6 +129,7 @@ button {
   color: inherit;
   border-style: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 
