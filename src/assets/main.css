@@ -19,7 +19,7 @@ h1 {
   font-size: var(--font-size-large);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 10px;
+  letter-spacing: 0px;
   text-align: center;
 }
 

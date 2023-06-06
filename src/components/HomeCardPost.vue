@@ -3,7 +3,7 @@
     <h2>Idea of a System</h2>
     <p class="preview">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my...</p>
     <div class="info">
-      <p class="date">05/14/23</p>
+      <h2>05/14/23</h2>
       <RouterLink to="/" class="icon"> <img src="@/assets/delete-icon.svg"></RouterLink>
     </div>
   </div>
@@ -33,9 +33,4 @@
   font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   padding: 1vh 0vw 1vh 0vw;
 }
-
-.date {
-  font-weight: bold;
-}
-
 </style>

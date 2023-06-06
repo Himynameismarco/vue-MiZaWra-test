@@ -73,7 +73,7 @@
 /* non-theme-specific variables */
 :root {
   --font-size-large: 2rem;
-  --font-size-medium: 1rem;
+  --font-size-medium: 18px; /* before: 1rem */
   --font-size-label: .8rem;
 
   --button-width-modes: 354px;
