@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
-import {themeSwitch} from "@/composables/toggleTheme";
 
 </script>
 <template>

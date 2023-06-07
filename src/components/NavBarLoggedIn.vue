@@ -34,7 +34,7 @@ import { themeSwitch } from '../composables/toggleTheme.ts'
         </button>
       </div>
       <RouterLink to="/about">Settings</RouterLink>
-      <RouterLink to="/about">Log Out</RouterLink>
+      <RouterLink to="/register">Log Out</RouterLink>
     </div>
 
   </nav>

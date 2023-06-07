@@ -2,10 +2,11 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 import {onMounted} from "vue";
-import {themeSwitch} from "@/composables/toggleTheme";
+import { themeSwitch } from "@/composables/toggleTheme";
 
 onMounted(() => {
-  console.log("themeSwitch.dark: " + themeSwitch.dark)
+  console.log("dark: " + themeSwitch.dark);
+  themeSwitch.manipulateClass();
 })
 </script>
 

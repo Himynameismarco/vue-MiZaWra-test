@@ -29,7 +29,7 @@ import { themeSwitch } from '../composables/toggleTheme.ts'
           </svg>
         </button>
       </div>
-      <RouterLink to="/about">Log In</RouterLink>
+      <RouterLink to="/">Log In</RouterLink>
       <RouterLink to="/register">Sign Up</RouterLink>
     </div>
 
