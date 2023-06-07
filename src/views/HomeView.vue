@@ -4,6 +4,7 @@ import HomeCardPost from '../components/HomeCardPost.vue'
 
 import { ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
+import { onMounted } from 'vue'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
@@ -13,7 +14,6 @@ let count = ref(0)
 let hover = false
 
 function changeBackground(event) {
-  console.log("changeBackground executed")
   const modes = ['free', 'prompted', 'story'];
   if (hover) {
     switch (event.target.id) {
