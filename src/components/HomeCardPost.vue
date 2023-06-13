@@ -29,6 +29,11 @@
   width: var(--card-width);
 }
 
+.item:hover {
+  background: var(--element-bg-hovered);
+  border-color: var(--element-border-hovered);
+}
+
 .item .info {
   display: flex;
   justify-content: space-between;

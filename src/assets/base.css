@@ -7,9 +7,13 @@
   /* background element*/
   --element-bg-lm: #FFFFFF;
   --element-bg-dm: #212125;
+  --element-bg-hovered-lm: #F0F0F0;
+  --element-bg-hovered-dm: #313134;
+
 
   /* border color light-mode */
   --element-border-color-lm: rgba(102, 102, 102, 10%);
+  --element-border-hovered-color-lm: rgba(102, 102, 102, 15%);
 
   /* MiZaWra Colors */
   --black: #252626;
@@ -40,6 +44,9 @@
   --color-input-borders: var(--dark-gray);
 
   --element-bg: var(--element-bg-lm);
+  --element-bg-hovered: var(--element-bg-hovered-lm);
+  --element-border-hovered: var(--element-border-color-lm);
+
 
   --gradient-color-blue: var(--gradient-color-blue-lm);
   --gradient-color-green: var(--gradient-color-green-lm);
@@ -60,6 +67,8 @@
   --color-input-borders: var(--dark-gray);
 
   --element-bg: var(--element-bg-dm);
+  --element-bg-hovered: var(--element-bg-hovered-dm);
+  --element-border-hovered: var(--element-border-color-lm); /* Achtung, hier kein Unterschied zu lm */
 
   --gradient-color-blue: var(--gradient-color-blue-dm);
   --gradient-color-green: var(--gradient-color-green-dm);
