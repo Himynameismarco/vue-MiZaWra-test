@@ -1,6 +1,14 @@
 <template>
   <div class="item">
-    <h2>Idea of a System</h2>
+    <div class="info">
+      <h2>Idea of a System</h2>
+      <RouterLink to="/" class="icon">
+        <svg class="show-mode" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.5" cy="9.5" r="9.5" fill="none"/>
+        </svg>
+
+      </RouterLink>
+    </div>
     <p class="preview">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my...</p>
     <div class="info">
       <h2>05/14/23</h2>
@@ -38,6 +46,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* TODO – via JS */
+.item:hover circle {
+  fill: var(--mode-blue);
 }
 
 .item svg {

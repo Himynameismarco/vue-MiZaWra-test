@@ -21,9 +21,9 @@
   --white: #FBFBFB;
 
   /* MiZaWra mode colors */
-  --mode-blue: 3060FF;
-  --mode-green: CDE82B;
-  --mode-salmon: FDCAB9;
+  --mode-blue: #3060FF;
+  --mode-green: #CDE82B;
+  --mode-salmon: #FDCAB9;
 
   /* Gradient background-colors when hovering */
   --gradient-color-blue-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(48, 96, 255, 0.4) 0%, rgba(251, 251, 251, 0.4) 100%);
