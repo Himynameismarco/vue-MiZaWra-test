@@ -40,56 +40,61 @@ function changeBackground(event) {
 
 <template>
   <NavBarLoggedIn />
-  <div class="instructions">
-    <h1>Create a Narrative</h1>
-    <h3>Choose Between Three Writing Modes</h3>
-  </div>
-  <div class="mode-picker">
-    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
-      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
-      </svg>
-      <button>Free Journal</button>
+  <div class="home">
+    <div class="instructions">
+      <h1>Create a Narrative</h1>
+      <h3>Choose Between Three Writing Modes</h3>
     </div>
-    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
-      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
-      </svg>
-      <button>Prompted Journal</button>
+    <div class="mode-picker">
+      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
+        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
+        </svg>
+        <button>Free Journal</button>
+      </div>
+      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
+        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
+        </svg>
+        <button>Prompted Journal</button>
+      </div>
+      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
+        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
+        </svg>
+        <button>Story</button>
+      </div>
     </div>
-    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
-      <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
-      </svg>
-      <button>Story</button>
+    <div class="card-grid">
+      <div class="archive">
+        <p>Archive:</p>
+      </div>
+      <div class="posts">
+        <p>{{posts}} Posts</p>
+      </div>
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
+      <HomeCardPost />
     </div>
-  </div>
-  <div class="card-grid">
-    <div class="archive">
-      <p>Archive:</p>
-    </div>
-    <div class="posts">
-      <p>{{posts}} Posts</p>
-    </div>
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
-    <HomeCardPost />
   </div>
 </template>
 
 <style scoped>
 
+.home {
+  display: grid;
+  grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 5 */
+  grid-template-rows: 125px 54px 223px repeat(2, 1fr); /* 6 */
+}
+
 .mode-picker {
-  grid-area: 5 / 2 / 6 / 5;
+  grid-area: 4 / 2 / 5 / 5;
   column-gap: var(--gap-width-modes);
   display: flex;
   justify-content: space-between;
@@ -142,7 +147,7 @@ function changeBackground(event) {
 
 .card-grid {
   position: relative;
-  grid-area: 7 / 2 / 15 / 5;
+  grid-area: 6 / 2 / 14 / 5;
   display: flex;
   column-gap: var(--gap-width-modes);
   row-gap: var(--gap-width-modes);

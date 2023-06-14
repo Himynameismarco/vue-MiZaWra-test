@@ -4,7 +4,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 </script>
 <template>
   <NavBarLoggedOut />
-  <div class="register">
+  <div class="register-content">
     <div class="heading">
       <h1 class="heading-logged-out">Create an Account</h1>
       <h3 class="heading-logged-out">Already have an Account? <a>Log In</a></h3>
@@ -26,15 +26,15 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 
 <style scoped>
 
-.register {
-  grid-area: 3 / 2 / 10 / 5;
+.register-content {
+  grid-area: 3 / 2 / 5 / 4;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
 }
 
-.register .heading {
+.register-content .heading {
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -55,7 +55,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
   font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 @media (max-width: 1024px) {
-  .register {
+  .register-content {
     grid-area: 2 / 2 / 5 / 5;
     display: flex;
     flex-direction: column;

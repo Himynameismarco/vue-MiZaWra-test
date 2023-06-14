@@ -85,6 +85,7 @@
   --font-size-medium: 18px; /* before: 1rem */
   --font-size-label: .8rem;
 
+  /* home */
   --button-width-modes: 354px;
   --gap-width-modes: 24px;
   --button-width-half-modes: calc(var(--button-width-modes) / 2);
@@ -103,7 +104,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 
 body {

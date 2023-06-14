@@ -2,11 +2,7 @@
 
 #app {
   margin: 0 auto;
-  display: grid;
   padding: 0 2em;
-  grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 13 */
-  grid-template-rows: 60px 125px 54px 223px repeat(2, 1fr); /* 15 */
-
 }
 
 @media (max-width: 1200px) {
@@ -78,7 +74,7 @@ input {
 /* Nav-Bar */
 
 nav {
-  grid-area: 1 / 1 / 2 / 6;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
