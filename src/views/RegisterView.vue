@@ -21,7 +21,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
           <input type="email" id="email" name="email">
           <label for="password">Password</label>
           <input type="password" id="password" name="password">
-          <p class="sub-password">(Use eight or more characters with a mix of letters, numbers, and symbols)</p>
+          <p class="sub-password">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
           <button class="sign-up">Sign Up</button>
         </form>
       </div>
@@ -35,7 +35,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 .register {
   position: relative;
   display: grid;
-  grid-template-columns: auto 462px auto; /* 5 */
+  grid-template-columns: auto 464px auto; /* 5 */
   grid-template-rows: 229px auto; /* 6 */
 }
 
@@ -75,8 +75,8 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
 }
 
 .sub-password {
-  font-size: var(--font-size-label);
-  font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: -0.01em;
 }
 
 .sign-up {
@@ -87,6 +87,12 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
   border: 1px solid rgba(102, 102, 102, 0.1);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+
+  font-weight: 400;
+  font-size: 19px; /* TODO: make variable */
+  line-height: 150%;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 

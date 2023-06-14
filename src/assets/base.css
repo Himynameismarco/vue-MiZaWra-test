@@ -34,6 +34,8 @@
   --gradient-color-green-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #788142 0%, #0D0E10 100%);
   --gradient-color-salmon-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #A67C6F 0%, #0D0E10 100%);
 
+  /* font */
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* assign variables for light mode */
@@ -81,7 +83,7 @@
 
 /* non-theme-specific variables */
 :root {
-  --font-size-large: 2rem;
+  --font-size-large: 26px;
   --font-size-medium: 18px; /* before: 1rem */
   --font-size-label: .8rem;
 
@@ -113,7 +115,7 @@ body {
   margin: 0;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: var(--font-size-medium);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

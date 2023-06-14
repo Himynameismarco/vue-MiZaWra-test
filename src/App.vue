@@ -21,4 +21,10 @@ onMounted(() => {
   src: local("Roboto Flex"),
   url(src/fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf) format("truetype");
 }
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: local("Roboto Mono"),
+  url(src/fonts/RobotoMono-VariableFont_wght.ttf) format("truetype");
+}
 </style>
