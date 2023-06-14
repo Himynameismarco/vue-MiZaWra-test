@@ -128,15 +128,71 @@ nav .logo {
 }
 
 button {
-  color: inherit;
+  color: var(--color-text);
   border-style: none;
-  background-color: transparent;
+  background-color: var(--element-bg);
   cursor: pointer;
 }
 
 
 
-/* No mode selected yet */
+/* Logged Out Pages */
+.wrapper-logged-out {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 464px auto; /* 5 */
+  grid-template-rows: 229px auto; /* 6 */
+}
+
+.background {
+  left: -949px;
+  top: calc(var(--nav-height) + 446px);
+  height: 1684px;
+  width: 1517px;
+  position: absolute;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
+}
+
+.wrapper-logged-out .content {
+  position: relative;
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.wrapper-logged-out .content .heading {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.forms {
+  padding-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 287px;
+}
+
+.sub-password {
+  font-size: 11px;
+  letter-spacing: -0.01em;
+}
+
+.logged-out-button {
+  margin-top: 60px;
+
+  height: 45px;
+  border: 1px solid rgba(102, 102, 102, 0.1);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  font-weight: 400;
+  font-size: 19px; /* TODO: make variable */
+  line-height: 150%;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
 
 /* Heading with Subheading */
 .instructions {
