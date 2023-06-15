@@ -96,7 +96,7 @@ function changeBackground(event) {
 .home {
   display: grid;
   grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 5 */
-  grid-template-rows: 125px 54px 223px repeat(2, 1fr); /* 6 */
+  grid-template-rows: 125px 65px 90px 122px 223px repeat(3, 1fr); /* 8 */
 }
 
 .mode-picker {

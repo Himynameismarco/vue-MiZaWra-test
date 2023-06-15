@@ -85,6 +85,7 @@
 :root {
   --font-size-large: 26px;
   --font-size-medium: 18px; /* before: 1rem */
+  --font-size-small: 14px;
   --font-size-label: .8rem;
 
   --nav-height: 60px;

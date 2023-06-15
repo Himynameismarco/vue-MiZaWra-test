@@ -42,7 +42,9 @@ import { themeSwitch } from '../composables/toggleTheme.ts'
 
 <style scoped>
 
-
+a {
+  color: var(--color-text);
+}
 
 
 </style>
