@@ -31,6 +31,11 @@ const router = createRouter({
       path: '/forgotPassword',
       name: 'forgotPassword',
       component: () => import('../views/ForgotPassword.vue')
+    },
+    {
+      path: '/selectModes',
+      name: 'selectModes',
+      component: () => import('../views/SelectModes.vue')
     }
   ]
 })
