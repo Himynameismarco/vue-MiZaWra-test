@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
-
 </script>
 
 <template>

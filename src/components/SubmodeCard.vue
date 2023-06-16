@@ -1,6 +1,6 @@
 <template>
   <div class="submode">
-    <RouterLink class="no-background" to="/selectModes">
+    <RouterLink class="no-background" to="/promptedWriting">
       <h2>philosophical prompt</h2>
       <p>Want to try to answer the big questions today?
         Go for this sub-mode!</p>

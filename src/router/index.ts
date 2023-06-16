@@ -35,7 +35,12 @@ const router = createRouter({
     {
       path: '/selectSubmodes',
       name: 'selectSubmodes',
-      component: () => import('../views/SelectSubmodes.vue')
+      component: () => import('../views/SelectSubmodesView.vue')
+    },
+    {
+      path: '/promptedWriting',
+      name: 'promptedWriting',
+      component: () => import('../views/PromptedWritingView.vue')
     }
   ]
 })
