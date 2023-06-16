@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
+
+function deleteBackground() {
+  document.documentElement.style.setProperty('background', 'var(--color-background)');
+}
 </script>
 
 <template>
-  <NavBarLoggedIn />
+  <NavBarLoggedIn/>
   <div class="selectModes">
     <div class="instructions">
       <h1>What Do You Want to Write About?</h1>
       <h3>Each sub-mode will give you a question to answer in your journal entry.</h3>
     </div>
     <div class="submode-picker">
-      <SubmodeCard/>
+      <SubmodeCard @click="deleteBackground"/>
       <RouterLink class="no-background" to="/selectSubmodes">
         <div class="submode">
           <h2>positive prompt</h2>
