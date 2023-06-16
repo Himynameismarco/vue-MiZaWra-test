@@ -101,6 +101,9 @@
   --card-height: 24vh;
   --card-width: var(--button-width-modes);
 
+  --writing-area-width: 1266px;
+  --prompt-height: 134px;
+
   --logged-in-border-width: 0.5px;
   --section-gap: 160px;
 }
