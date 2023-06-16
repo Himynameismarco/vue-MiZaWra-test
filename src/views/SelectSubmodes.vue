@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
+import SubmodeCard from '../components/SubmodeCard.vue'
+
 </script>
 
 <template>
@@ -10,14 +12,8 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
       <h3>Each sub-mode will give you a question to answer in your journal entry.</h3>
     </div>
     <div class="submode-picker">
-      <div class="submode">
-        <RouterLink class="no-background" to="/selectModes">
-          <h2>philosophical prompt</h2>
-          <p>Want to try to answer the big questions today?
-            Go for this sub-mode!</p>
-        </RouterLink>
-      </div>
-      <RouterLink class="no-background" to="/selectModes">
+      <SubmodeCard/>
+      <RouterLink class="no-background" to="/selectSubmodes">
         <div class="submode">
           <h2>positive prompt</h2>
           <p>Feel like you need something uplifting today?
@@ -25,14 +21,14 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
         </div>
       </RouterLink>
       <div class="submode">
-        <RouterLink class="no-background" to="/selectModes">
+        <RouterLink class="no-background" to="/selectSubmodes">
           <h2>neutral prompt</h2>
           <p>Feel like you need something uplifting today?
             Check out this sub-mode.</p>
         </RouterLink>
       </div>
       <div class="submode">
-        <RouterLink class="no-background" to="/selectModes">
+        <RouterLink class="no-background" to="/selectSubmodes">
           <h2>negative prompt</h2>
           <p>Feel like tackling a  difficult personal moment today? This sub-mode could be right for you.</p>
         </RouterLink>
@@ -59,6 +55,8 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
   row-gap: 26px;
   column-gap: 30px;
 }
+
+/* TODO: everything below this comment is going to be deleted, as it is in the component SubmodeCard.vue */
 
 .submode {
   display: flex;
@@ -91,5 +89,6 @@ p {
 a {
   color: var(--color-text);
 }
+
 
 </style>

@@ -33,9 +33,9 @@ const router = createRouter({
       component: () => import('../views/ForgotPassword.vue')
     },
     {
-      path: '/selectModes',
-      name: 'selectModes',
-      component: () => import('../views/SelectModes.vue')
+      path: '/selectSubmodes',
+      name: 'selectSubmodes',
+      component: () => import('../views/SelectSubmodes.vue')
     }
   ]
 })
