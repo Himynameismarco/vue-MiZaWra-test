@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
-import HomeCardPost from '../components/HomeCardPost.vue'
+import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
+import HomeCardPost from "@/components/HomeCardPost.vue";
 
 import { ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { onMounted } from 'vue'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
 const posts = 12
 
-let count = ref(0)
 let hover = false
 
 function changeBackground(event) {
@@ -153,7 +151,7 @@ function changeBackground(event) {
 .posts {
   position: absolute;
   top: var(--prompt-circle-top-space);
-  right: 0px;
+  right: 0;
   font-size: var(--font-size-label);
 }
 
