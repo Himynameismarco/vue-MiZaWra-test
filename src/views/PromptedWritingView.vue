@@ -13,10 +13,9 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
       <div class="writing-header">
         <h3>Title</h3>
         <h3>04/07/23</h3>
-
       </div>
       <div class="writing-area">
-        <p>Typing ... </p>
+        <textarea id="narrative" placeholder="Start typing here ..."></textarea>
       </div>
     </div>
     <button class="save">
@@ -71,6 +70,23 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
   justify-content: space-between;
   height: 65px;
   text-transform: uppercase;
+}
+
+.writing-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 834px;
+  height: 449px;
+}
+
+.writing-area #narrative {
+  flex: 1;
+}
+
+textarea {
+  border: none;
+  overflow-y: scroll;
 }
 
 .save {
