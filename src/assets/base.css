@@ -88,6 +88,8 @@
   --font-size-small: 14px;
   --font-size-label: .8rem;
 
+  --font-family-standard: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
   --nav-height: 60px;
 
   /* home */
@@ -101,7 +103,8 @@
   --card-height: 24vh;
   --card-width: var(--button-width-modes);
 
-  --writing-area-width: 1266px;
+  --writing-container-width: 1266px;
+  --writing-container-height: 730px;
   --prompt-height: 134px;
 
   --logged-in-border-width: 0.5px;
@@ -119,7 +122,7 @@ body {
   margin: 0;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-family-standard);
   font-size: var(--font-size-medium);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
