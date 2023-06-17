@@ -35,7 +35,6 @@ function changeBackground(event) {
   }
 }
 
-
 </script>
 
 <template>
@@ -46,7 +45,7 @@ function changeBackground(event) {
       <h3>Choose Between Three Writing Modes</h3>
     </div>
     <div class="mode-picker">
-    <RouterLink class="no-background" to="/selectSubmodes">
+    <RouterLink class="no-background" to="/freeWriting">
       <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
         <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>

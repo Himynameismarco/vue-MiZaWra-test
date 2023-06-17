@@ -93,5 +93,10 @@ a {
   color: var(--color-text);
 }
 
+.submode:hover {
+  background: var(--element-bg-hovered);
+  border-color: var(--element-border-hovered);
+}
+
 
 </style>

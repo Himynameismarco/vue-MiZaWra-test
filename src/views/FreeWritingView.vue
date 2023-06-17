@@ -7,10 +7,6 @@ import WritingSaveButton from "@/components/WritingSaveButton.vue";
 <template>
   <NavBarLoggedIn/>
   <div class="container">
-    <div class="prompt">
-      <p class="submode-label">philosophical prompt</p>
-      <h2>What can you hope for?</h2>
-    </div>
     <WritingArea/>
     <WritingSaveButton/>
   </div>
@@ -25,21 +21,28 @@ import WritingSaveButton from "@/components/WritingSaveButton.vue";
   align-items: center;
 }
 
-.prompt {
-  margin-top: 86px;
-  width: var(--writing-container-width);
-  height: var(--prompt-height);
+.save {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 184px;
+  height: 48px;
+
+  margin-top: 50px;
+  margin-bottom: 65px;
+  padding: 12px 12px;
+
   background: var(--element-bg);
+
   border-width: var(--logged-in-border-width);
+  border-style: solid;
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
-  border-style: solid;
   border-radius: 30px;
-  padding: 2vh 2vw 2vh 2vw;
-}
 
-.submode-label {
-  text-transform: uppercase;
-  text-align: center;
+  font-family: var(--font-family-standard);
+  font-size: 19px;
+  letter-spacing: 0.01em;
 }
 </style>

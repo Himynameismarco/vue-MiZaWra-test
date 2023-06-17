@@ -41,6 +41,11 @@ const router = createRouter({
       path: '/promptedWriting',
       name: 'promptedWriting',
       component: () => import('../views/PromptedWritingView.vue')
+    },
+    {
+      path: '/freeWriting',
+      name: 'freeWriting',
+      component: () => import('../views/FreeWritingView.vue')
     }
   ]
 })
