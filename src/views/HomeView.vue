@@ -165,6 +165,7 @@ function changeBackground(event) {
   row-gap: var(--gap-width-modes);
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 112px;
 }
 
 </style>
