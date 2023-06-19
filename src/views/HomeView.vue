@@ -33,13 +33,25 @@ function changeBackground(event) {
   }
 }
 
+
+function createOrDestroy() {
+  let createDestroy = "Create";
+  if (Math.random() > 0.9) {
+    createDestroy = "Destroy";
+  }
+  return createDestroy
+}
+
+let createDestroy = createOrDestroy();
+
+
 </script>
 
 <template>
   <NavBarLoggedIn />
   <div class="home">
     <div class="instructions">
-      <h1>Create a Narrative</h1>
+      <h1>{{createDestroy}} your Narrative</h1>
       <h3>Choose Between Three Writing Modes</h3>
     </div>
     <div class="mode-picker">
