@@ -1,13 +1,14 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <div class="item">
     <div class="info">
       <h2>Idea of a System</h2>
-      <RouterLink to="/" class="icon">
-        <svg class="show-mode" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="9.5" cy="9.5" r="9.5" fill="none"/>
-        </svg>
-
-      </RouterLink>
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="prompted" cx="9.5" cy="9.5" r="9.5" fill="none"/>
+      </svg>
     </div>
     <p class="preview">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my...</p>
     <div class="info">
@@ -47,8 +48,16 @@
 }
 
 /* TODO – via JS */
-.item:hover circle {
+.item:hover .free {
   fill: var(--mode-blue);
+}
+
+.item:hover .prompted {
+  fill: var(--mode-green);
+}
+
+.item:hover .story {
+  fill: var(--mode-salmon);
 }
 
 .item svg {

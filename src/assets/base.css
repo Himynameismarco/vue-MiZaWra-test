@@ -83,10 +83,12 @@
 
 /* non-theme-specific variables */
 :root {
+  /* Old Font sizes */
   --font-size-large: 26px;
   --font-size-medium: 18px; /* before: 1rem */
   --font-size-small: 14px;
   --font-size-label: .8rem;
+  /* till here */
 
   --font-family-standard: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
