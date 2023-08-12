@@ -13,7 +13,7 @@ onMounted(() => {
 <template>
 
   <RouterView />
-</template>
+</template>ls
 
 <style scoped>
 @font-face {

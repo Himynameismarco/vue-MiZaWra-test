@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { themeSwitch } from '../composables/toggleTheme.ts'
+import { themeSwitch } from '../composables/toggleTheme'
 
 </script>
 

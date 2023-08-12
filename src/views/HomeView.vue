@@ -11,7 +11,7 @@ const posts = 12
 
 let hover = false
 
-function changeBackground(event) {
+function changeBackground(event: any) {
   const modes = ['free', 'prompted', 'story'];
   if (hover) {
     switch (event.target.id) {
