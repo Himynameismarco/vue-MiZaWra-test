@@ -32,7 +32,7 @@
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-radius: 30px;
-  padding: 2vh 2vw 2vh 2vw;
+  padding: 25px 28px;
   width: var(--card-width);
 }
 
@@ -67,6 +67,7 @@
 
 .preview {
   font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  padding: 1vh 0 1vh 0;
+  padding: 24px 0 24px 0;
+  margin: 0;
 }
 </style>

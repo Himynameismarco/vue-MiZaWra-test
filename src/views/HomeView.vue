@@ -57,7 +57,7 @@ let createDestroy = createOrDestroy();
     <div class="mode-picker">
     <RouterLink class="no-background" to="/freeWriting">
       <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
-        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
         </svg>
           <button>Free Journal</button>
@@ -65,7 +65,7 @@ let createDestroy = createOrDestroy();
     </RouterLink>
     <RouterLink class="no-background" to="/selectSubmodes">
       <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
-        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
         </svg>
         <button>Prompted Journal</button>
@@ -73,7 +73,7 @@ let createDestroy = createOrDestroy();
     </RouterLink>
     <RouterLink class="no-background" to="/selectSubmodes">
     <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
-        <svg class="icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
         </svg>
           <button>Story</button>
@@ -105,7 +105,7 @@ let createDestroy = createOrDestroy();
 .home {
   display: grid;
   grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 5 */
-  grid-template-rows: 125px 65px 90px 122px 223px repeat(3, 1fr); /* 8 */
+  grid-template-rows: 125px 65px 86px var(--button-height-modes) 151px repeat(3, 1fr); /* 8 */
 }
 
 .mode-picker {
@@ -139,12 +139,12 @@ let createDestroy = createOrDestroy();
   border-style: solid;
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
+  border-radius: 24px;
   width: var(--button-width-modes);
   height: var(--button-height-modes);
   background: var(--element-bg);
-  font-size: var(--font-size-medium);
-  letter-spacing: 0.01em;
+  font-size: 20px;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
 }
 
@@ -156,15 +156,25 @@ let createDestroy = createOrDestroy();
 
 .archive {
   position: absolute;
-  top: var(--prompt-circle-top-space);
-  font-size: var(--font-size-label);
+  top: calc(-32px - 4.8px - var(--font-size-smaller-medium));
+}
+
+.archive p {
+  font-size: var(--font-size-smaller-medium);
+  font-weight: 500;
+  letter-spacing: 0.1px;
 }
 
 .posts {
   position: absolute;
-  top: var(--prompt-circle-top-space);
+  top: calc(-32px - 4.8px - var(--font-size-smaller-medium));
   right: 0;
-  font-size: var(--font-size-label);
+}
+
+.posts p {
+  font-size: var(--font-size-smaller-medium);
+  font-weight: 500;
+  letter-spacing: 0.1px;
 }
 
 .card-grid {

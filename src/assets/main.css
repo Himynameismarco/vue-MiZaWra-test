@@ -23,7 +23,7 @@ h1 {
 
 /* Used for Journal Entry headings */
 h2 {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-smaller-medium);
   font-weight: 500;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -44,7 +44,7 @@ h3 {
 }
 
 p {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
 }
 
 .heading-logged-out {

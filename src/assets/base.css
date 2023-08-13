@@ -84,8 +84,9 @@
 /* non-theme-specific variables */
 :root {
   /* Old Font sizes */
-  --font-size-large: 26px;
-  --font-size-medium: 16px; /* before: 1rem */
+  --font-size-large: 28px; /* H1 */
+  --font-size-medium: 16px; /* H3 */
+  --font-size-smaller-medium: 15.2px;
   --font-size-small: 14px;
   --font-size-label: .8rem;
   /* till here */
@@ -95,11 +96,11 @@
   --nav-height: 56px;
 
   /* home */
-  --button-width-modes: 354px;
+  --button-width-modes: 280px;
   --gap-width-modes: 24px;
   --button-width-half-modes: calc(var(--button-width-modes) / 2);
-  --button-height-modes: 122px;
-  --prompt-circle-top-space: -50px;
+  --button-height-modes: 102px;
+  --prompt-circle-top-space: -46px;
   --prompt-circle-size: 70px;
 
   --card-height: 24vh;
