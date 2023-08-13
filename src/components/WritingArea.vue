@@ -36,7 +36,7 @@ export default {
 
 .writing-container {
   position: relative;
-  margin-top: 51px;
+  margin-top: 24px;
   padding: 78px 216px 117px 216px;
   height: var(--writing-container-height);
   width: var(--writing-container-width);
@@ -70,6 +70,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 0;
+  font-weight: 500;
 }
 
 .writing-area {
@@ -90,6 +91,7 @@ textarea {
   font-size: var(--font-size-medium);
   background-color: transparent;
   color: var(--color-text);
+  width: 584px;
 }
 
 </style>

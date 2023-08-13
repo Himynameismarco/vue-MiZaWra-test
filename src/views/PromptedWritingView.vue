@@ -26,19 +26,21 @@ import WritingSaveButton from "@/components/WritingSaveButton.vue";
 }
 
 .prompt {
-  margin-top: 86px;
+  margin-top: 64px;
   width: var(--writing-container-width);
   height: var(--prompt-height);
   background: var(--element-bg);
   border-width: var(--logged-in-border-width);
   border-color: var(--element-border-color-lm);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  font-size: var(--font-size-smaller-medium);
   border-style: solid;
-  border-radius: 30px;
-  padding: 2vh 2vw 2vh 2vw;
+  border-radius: 24px;
+  padding: 27px;
 }
 
 .submode-label {
+  margin: 0;
+  font-size: 12px;
   text-transform: uppercase;
   text-align: center;
 }

@@ -85,6 +85,7 @@
 :root {
   /* Old Font sizes */
   --font-size-large: 28px; /* H1 */
+  --font-size-smaller-large: 20px;
   --font-size-medium: 16px; /* H3 */
   --font-size-smaller-medium: 15.2px;
   --font-size-small: 14px;
@@ -107,10 +108,13 @@
 
   --writing-container-width: 1266px;
   --writing-container-height: 730px;
-  --prompt-height: 134px;
+  --prompt-height: 100px;
 
   --logged-in-border-width: 0.5px;
   --section-gap: 160px;
+
+  /* select submodes view */
+  --submode-width-modes: 508px;
 }
 
 *,

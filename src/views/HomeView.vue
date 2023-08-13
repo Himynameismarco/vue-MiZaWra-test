@@ -143,7 +143,7 @@ let createDestroy = createOrDestroy();
   width: var(--button-width-modes);
   height: var(--button-height-modes);
   background: var(--element-bg);
-  font-size: 20px;
+  font-size: var(--font-size-smaller-large);
   letter-spacing: 0.7px;
   text-transform: uppercase;
   font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

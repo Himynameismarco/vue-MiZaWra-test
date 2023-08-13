@@ -18,21 +18,21 @@ function deleteBackground() {
       <SubmodeCard @click="deleteBackground"/>
       <RouterLink class="no-background" to="/selectSubmodes">
         <div class="submode">
-          <h2>positive prompt</h2>
+          <h2 class="heading">positive prompt</h2>
           <p>Feel like you need something uplifting today?
             Check out this sub-mode.</p>
         </div>
       </RouterLink>
       <div class="submode">
         <RouterLink class="no-background" to="/selectSubmodes">
-          <h2>neutral prompt</h2>
+          <h2 class="heading">neutral prompt</h2>
           <p>Feel like you need something uplifting today?
             Check out this sub-mode.</p>
         </RouterLink>
       </div>
       <div class="submode">
         <RouterLink class="no-background" to="/selectSubmodes">
-          <h2>negative prompt</h2>
+          <h2 class="heading">negative prompt</h2>
           <p>Feel like tackling a  difficult personal moment today? This sub-mode could be right for you.</p>
         </RouterLink>
       </div>
@@ -46,7 +46,7 @@ function deleteBackground() {
 
 .selectModes {
   display: grid;
-  grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 5 */
+  grid-template-columns: auto repeat(2, calc(var(--submode-width-modes) + var(--gap-width-modes))) auto; /* 5 */
   grid-template-rows: 125px 65px 120px 440px minmax(201px, auto); /* 8 */
 }
 
@@ -69,13 +69,18 @@ function deleteBackground() {
   border-style: solid;
   border-color: var(--element-border-color-lm);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  width: 510px;
+  border-radius: 24px;
+  width: var(--submode-width-modes);
   height: 194px;
   background: var(--element-bg);
   font-size: var(--font-size-medium);
   letter-spacing: 0.01em;
   padding: 61px 62px 60px 62px;
+}
+
+.submode .heading {
+  font-weight: 400;
+  font-size: var(--font-size-smaller-large);
 }
 
 p {

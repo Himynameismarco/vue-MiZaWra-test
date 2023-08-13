@@ -1,7 +1,7 @@
 <template>
   <div class="submode">
     <RouterLink  class="no-background" to="/promptedWriting">
-      <h2>philosophical prompt</h2>
+      <h2 class="heading">philosophical prompt</h2>
       <p>Want to try to answer the big questions today?
         Go for this sub-mode!</p>
     </RouterLink>
@@ -31,6 +31,11 @@ export default {
   font-size: var(--font-size-medium);
   letter-spacing: 0.01em;
   padding: 61px 62px 60px 62px;
+}
+
+.submode .heading {
+  font-weight: 400;
+  font-size: var(--font-size-smaller-large);
 }
 
 p {
