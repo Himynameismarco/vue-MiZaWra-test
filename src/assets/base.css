@@ -1,130 +1,105 @@
-/* color palette for light-mode (lm) and dark-mode (dm) */
+/* Base Variables */
 :root {
-  /* background colors*/
+  /* Color palette for light-mode (lm) and dark-mode (dm) */
+  /* Background Colors */
   --bg-lm: #FBFBFB;
   --bg-dm: #0D0E10;
 
-  /* background element*/
+  /* Element Backgrounds */
   --element-bg-lm: #FFFFFF;
   --element-bg-dm: #212125;
   --element-bg-hovered-lm: #F3F3F3;
   --element-bg-hovered-dm: #313134;
 
-
-  /* border color light-mode */
+  /* Border Colors */
   --element-border-color-lm: rgba(102, 102, 102, 10%);
   --element-border-hovered-color-lm: rgba(102, 102, 102, 15%);
 
-  /* MiZaWra Colors */
+  /* General Colors */
   --black: #252626;
   --dark-gray: #9E9E9E;
   --white: #FBFBFB;
   --hover-white: #9E9E9E;
 
-  /* MiZaWra mode colors */
+  /* Mode Colors */
   --mode-blue: #3060FF;
   --mode-green: #CDE82B;
   --mode-salmon: #FDCAB9;
 
-  /* Gradient background-colors when hovering */
+  /* Gradient Background Colors */
   --gradient-color-blue-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, #A3B8FF 0%, #FBFBFB 100%);
   --gradient-color-green-lm: radial-gradient(89.55% 64.12% at 50.00% 92.32%, #E0EF88 0%, #FBFBFB 100%);
   --gradient-color-salmon-lm: radial-gradient(89.55% 64.12% at 50.00% 92.32%, #FDCAB9 0%, #FBFBFB 100%);
-
   --gradient-color-blue-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #1A3696 0%, #0D0E10 100%);
   --gradient-color-green-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #788142 0%, #0D0E10 100%);
   --gradient-color-salmon-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #A67C6F 0%, #0D0E10 100%);
 
-  /* font */
-  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* assign variables for light mode */
-:root {
-  --color-background: var(--bg-lm);
-  --color-heading: var(--black);
-  --color-text: var(--black);
-  --color-input-borders: var(--dark-gray);
-
-  --element-bg: var(--element-bg-lm);
-  --element-bg-hovered: var(--element-bg-hovered-lm);
-  --element-border-hovered: var(--element-border-color-lm);
-
-
-  --gradient-color-blue: var(--gradient-color-blue-lm);
-  --gradient-color-green: var(--gradient-color-green-lm);
-  --gradient-color-salmon: var(--gradient-color-salmon-lm);
-
-  /* set attributes */
-  background-color: var(--color-background);
-  color: var(--color-text);
-
-
-}
-
-/* assign variables for dark mode */
-:root.dark-theme {
-  --color-background: var(--bg-dm);
-  --color-heading: var(--white);
-  --color-text: var(--white);
-  --color-input-borders: var(--dark-gray);
-
-  --element-bg: var(--element-bg-dm);
-  --element-bg-hovered: var(--element-bg-hovered-dm);
-  --element-border-hovered: var(--element-border-color-lm); /* Achtung, hier kein Unterschied zu lm */
-
-  --gradient-color-blue: var(--gradient-color-blue-dm);
-  --gradient-color-green: var(--gradient-color-green-dm);
-  --gradient-color-salmon: var(--gradient-color-salmon-dm);
-
-  /* set attributes */
-  background-color: var(--color-background);
-  color: var(--color-text);
-}
-
-/* non-theme-specific variables */
-:root {
-  /* Old Font sizes */
+  /* Font Settings */
+  --font-family-standard: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-size-large: 28px; /* H1 */
   --font-size-smaller-large: 20px;
   --font-size-medium: 16px; /* H3 */
   --font-size-smaller-medium: 15.2px;
   --font-size-small: 14px;
   --font-size-label: .8rem;
-  /* till here */
 
-  --orange: #F8503B;
-
-  --font-family-standard: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
+  /* Layout Settings */
   --nav-height: 56px;
-
-  /* home */
   --button-width-modes: 280px;
   --gap-width-modes: 24px;
   --button-width-half-modes: calc(var(--button-width-modes) / 2);
   --button-height-modes: 102px;
   --prompt-circle-top-space: -46px;
   --prompt-circle-size: 70px;
-
   --card-width: var(--button-width-modes);
-
   --writing-container-width: 1240px;
   --writing-container-height: auto;
   --prompt-height: 100px;
-
   --logged-in-border-width: 0.5px;
   --section-gap: 160px;
-
-  /* select submodes view */
   --submode-width-modes: 508px;
+
+  /* Miscellaneous */
+  --orange: #F8503B;
 }
 
+/* Light Mode Assignments */
+:root {
+  --color-background: var(--bg-lm);
+  --color-heading: var(--black);
+  --color-text: var(--black);
+  --color-input-borders: var(--dark-gray);
+  --element-bg: var(--element-bg-lm);
+  --element-bg-hovered: var(--element-bg-hovered-lm);
+  --element-border-hovered: var(--element-border-color-lm);
+  --gradient-color-blue: var(--gradient-color-blue-lm);
+  --gradient-color-green: var(--gradient-color-green-lm);
+  --gradient-color-salmon: var(--gradient-color-salmon-lm);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Dark Mode Assignments */
+:root.dark-theme {
+  --color-background: var(--bg-dm);
+  --color-heading: var(--white);
+  --color-text: var(--white);
+  --color-input-borders: var(--dark-gray);
+  --element-bg: var(--element-bg-dm);
+  --element-bg-hovered: var(--element-bg-hovered-dm);
+  --element-border-hovered: var(--element-border-color-lm); /* Note: Same as light mode */
+  --gradient-color-blue: var(--gradient-color-blue-dm);
+  --gradient-color-green: var(--gradient-color-green-dm);
+  --gradient-color-salmon: var(--gradient-color-salmon-dm);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Global Styling */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  /* font-weight: normal; */
 }
 
 body {
@@ -136,11 +111,4 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /** as soon as it is supported by most browsers:
-  text-edge: cap alphabetic;
-  leading-trim: both;
-
-
-   */
-
 }
