@@ -1,8 +1,7 @@
 <template>
   <div class="writing-container">
     <div class="writing-header">
-      <h3 class="items">Title</h3>
-      <h3 class="items">04/07/23</h3>
+      <textarea class="items">Give Your Text a Title</textarea>
     </div>
     <div class="icons">
       <svg width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,6 +22,9 @@
     <div class="writing-area">
       <textarea id="narrative" placeholder="Start typing here ..."></textarea>
     </div>
+    <div class="writing-footer">
+        <h3 class="items">04/07/23</h3>
+    </div>
   </div>
 </template>
 
@@ -37,8 +39,7 @@ export default {
 .writing-container {
   position: relative;
   margin-top: 24px;
-  padding: 78px 216px 117px 216px;
-  height: var(--writing-container-height);
+  padding: 64px 228px 64px 228px;
   width: var(--writing-container-width);
   background: var(--element-bg);
   border-width: var(--logged-in-border-width);
@@ -46,6 +47,8 @@ export default {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-radius: 30px;
+  min-height: 400px;
+  height: auto;
 }
 
 .icons {
@@ -69,29 +72,61 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: var(--font-size-smaller-medium);
+  font-style: normal;
   font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  width: 834px;
+  height: 20px;
+  resize: none;
 }
+
+
+.writing-header .items:focus {
+  border: none;
+  overflow: hidden;
+  outline:none;
+}
+
 
 .writing-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 834px;
-  height: 449px;
+  min-height: 291px;
 }
 
 .writing-area #narrative {
   flex: 1;
-}
-
-textarea {
   border: none;
   overflow-y: scroll;
+  line-height: 28px;
   font-size: var(--font-size-medium);
-  background-color: transparent;
   color: var(--color-text);
   width: 584px;
 }
+
+.writing-area #narrative:focus {
+  border: none;
+  overflow: hidden;
+  outline:none;
+}
+
+.writing-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+
+
 
 </style>

@@ -7,7 +7,7 @@
   /* background element*/
   --element-bg-lm: #FFFFFF;
   --element-bg-dm: #212125;
-  --element-bg-hovered-lm: #F0F0F0;
+  --element-bg-hovered-lm: #F3F3F3;
   --element-bg-hovered-dm: #313134;
 
 
@@ -19,6 +19,7 @@
   --black: #252626;
   --dark-gray: #9E9E9E;
   --white: #FBFBFB;
+  --hover-white: #9E9E9E;
 
   /* MiZaWra mode colors */
   --mode-blue: #3060FF;
@@ -92,6 +93,8 @@
   --font-size-label: .8rem;
   /* till here */
 
+  --orange: #F8503B;
+
   --font-family-standard: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
   --nav-height: 56px;
@@ -106,8 +109,8 @@
 
   --card-width: var(--button-width-modes);
 
-  --writing-container-width: 1266px;
-  --writing-container-height: 730px;
+  --writing-container-width: 1240px;
+  --writing-container-height: auto;
   --prompt-height: 100px;
 
   --logged-in-border-width: 0.5px;

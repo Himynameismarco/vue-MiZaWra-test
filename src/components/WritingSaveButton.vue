@@ -20,7 +20,7 @@ export default {
   width: 184px;
   height: 48px;
 
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 65px;
   padding: 12px 12px;
 
