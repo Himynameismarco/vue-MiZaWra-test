@@ -1,10 +1,33 @@
+<script lang="ts">
+import { ref } from 'vue';
+export default {
+  name: "WritingArea.vue",
+  methods: {
+    hidePrompt(event) {
+      console.log("HI!");
+      let prompt = document.getElementById("prompt");
+      let container = document.getElementById("container");
+      if (prompt) {
+        if (prompt.style.display === 'none') {
+          prompt.style.display = 'block';
+          container.style.marginTop = '44px';
+        } else {
+          prompt.style.display = 'none';
+          container.style.marginTop = '24px';
+        }
+      }
+    }
+  }
+}
+</script>
+
 <template>
   <div class="writing-container">
     <div class="writing-header">
       <textarea class="items">Give Your Text a Title</textarea>
     </div>
     <div class="icons">
-      <svg width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg @mouseenter="hover = true; changeBoxshadow($event);" @click="hidePrompt($event);" width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
       </svg>
       <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,12 +50,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  name: "WritingArea.vue"
-}
-</script>
 
 <style scoped>
 

@@ -6,8 +6,8 @@ import WritingSaveButton from "@/components/WritingSaveButton.vue";
 
 <template>
   <NavBarLoggedIn/>
-  <div class="container">
-    <div class="prompt">
+  <div class="container" id="container">
+    <div class="prompt" id="prompt">
       <p class="submode-label">philosophical prompt</p>
       <h2>What can you hope for?</h2>
     </div>
