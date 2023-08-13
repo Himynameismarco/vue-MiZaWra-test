@@ -26,9 +26,9 @@
   --mode-salmon: #FDCAB9;
 
   /* Gradient background-colors when hovering */
-  --gradient-color-blue-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(48, 96, 255, 0.4) 0%, rgba(251, 251, 251, 0.4) 100%);
-  --gradient-color-green-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(205, 232, 43, 0.5) 0%, rgba(251, 251, 251, 0.5) 100%);
-  --gradient-color-salmon-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, rgba(253, 202, 185, 0.95) 0%, rgba(251, 251, 251, 0.95) 100%);
+  --gradient-color-blue-lm: radial-gradient(89.55% 64.12% at 50% 92.32%, #A3B8FF 0%, #FBFBFB 100%);
+  --gradient-color-green-lm: radial-gradient(89.55% 64.12% at 50.00% 92.32%, #E0EF88 0%, #FBFBFB 100%);
+  --gradient-color-salmon-lm: radial-gradient(89.55% 64.12% at 50.00% 92.32%, #FDCAB9 0%, #FBFBFB 100%);
 
   --gradient-color-blue-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #1A3696 0%, #0D0E10 100%);
   --gradient-color-green-dm: radial-gradient(89.55% 64.12% at 50% 92.32%, #788142 0%, #0D0E10 100%);
@@ -103,7 +103,6 @@
   --prompt-circle-top-space: -46px;
   --prompt-circle-size: 70px;
 
-  --card-height: 24vh;
   --card-width: var(--button-width-modes);
 
   --writing-container-width: 1266px;

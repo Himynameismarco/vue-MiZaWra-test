@@ -146,6 +146,8 @@ let createDestroy = createOrDestroy();
   font-size: 20px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+;
 }
 
 #free:hover #free-svg,
