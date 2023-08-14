@@ -4,6 +4,9 @@ import {ref} from "vue";
 
 let showMyAcc = ref(true);
 let showAppSettings = ref(false);
+let newPassword = ref('');
+let confirmNewPassword = ref('');
+
 
 function switchToMyAcc() {
    showAppSettings.value = false;
@@ -14,6 +17,17 @@ function switchToAppSettings() {
     showMyAcc.value = false;
     showAppSettings.value = true;
   }
+
+function passwordsMatch(): boolean {
+  return newPassword.value === confirmNewPassword.value;
+}
+
+function updateSettings() {
+  if (!passwordsMatch()) {
+    alert('New password and confirmation do not match!');
+    return;
+  }
+}
 
 </script>
 
@@ -33,21 +47,23 @@ function switchToAppSettings() {
     <div class="content">
       <div v-if="showMyAcc" class="personal-information">
         <h3>Personal Information</h3>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname">
+        <label for="lastname">Last Name</label>
+        <input type="lastname" id="lastname" name="lastname">
+        <label for="username">User Name</label>
+        <input type="text" id="username" name="username">
         <label for="email">E-Mail</label>
         <input type="email" id="email" name="email">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="email">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
       </div>
       <div v-if="showMyAcc" class="password-information">
         <h3>Password</h3>
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="email">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <label for="password">Current Password</label>
+        <input type="password" id="c-password" name="password">
+        <label for="n-password">New Password</label>
+        <input type="password" id="n-password" name="n-password" v-model="newPassword">
+        <label for="n-password-c">Confirm New Password</label>
+        <input type="password" id="n-password-c" name="n-password-c" v-model="confirmNewPassword">
       </div>
       <div v-if="showAppSettings" class="theme-lang">
         <h3>Theme</h3>
@@ -75,7 +91,7 @@ function switchToAppSettings() {
 
       </div>
     <div class="buttons">
-      <button class="save">
+      <button class="save" @click="updateSettings">
         Update Settings
       </button>
       <RouterLink class="cancel" to="/">
@@ -135,16 +151,14 @@ h3 {
   grid-area: 3 / 2 / 4 / 5;
 }
 
-.personal-information {
+.personal-information, .password-information {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.password-information {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+input {
+  padding: 12px 24px;
 }
 
 .theme-buttons {
