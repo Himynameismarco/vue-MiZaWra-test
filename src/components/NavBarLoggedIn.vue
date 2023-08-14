@@ -33,7 +33,7 @@ import { themeSwitch } from '../composables/toggleTheme'
           </svg>
         </button>
       </div>
-      <RouterLink to="/about">Settings</RouterLink>
+      <RouterLink to="/settings">Settings</RouterLink>
       <RouterLink to="/register">Log Out</RouterLink>
     </div>
 

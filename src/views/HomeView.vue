@@ -105,7 +105,7 @@ let createDestroy = createOrDestroy();
 .home {
   display: grid;
   grid-template-columns: auto repeat(3, calc(var(--button-width-modes) + var(--gap-width-modes))) auto; /* 5 */
-  grid-template-rows: 125px 65px 86px var(--button-height-modes) 151px repeat(3, 1fr); /* 8 */
+  grid-template-rows: var(--vertical-space-to-first-content) 65px 86px var(--button-height-modes) 151px repeat(3, 1fr); /* 8 */
 }
 
 .mode-picker {
