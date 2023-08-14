@@ -2,36 +2,40 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import HomeCardPost from "@/components/HomeCardPost.vue";
 
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useElementSize } from '@vueuse/core'
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
 const posts = 12
 
+
+
+const modes = {
+  free: 'var(--gradient-color-blue)',
+  prompted: 'var(--gradient-color-green)',
+  story: 'var(--gradient-color-salmon)',
+};
+
 let hover = ref(false);
+let activeMode = ref(''); // Create a ref to store the current active mode.
 
 function changeBackground(event: any) {
-  const modes = ['free', 'prompted', 'story'];
-  if (hover) {
-    switch (event.target.id) {
-      case modes[0]:
-        document.documentElement.style.setProperty('background', 'var(--gradient-color-blue)');
-        break;
-      case modes[1]:
-        document.documentElement.style.setProperty('background', 'var(--gradient-color-green)');
-        break;
-      case modes[2]:
-        document.documentElement.style.setProperty('background', 'var(--gradient-color-salmon)');
-        break;
-      default:
-        break;
-    }
-    hover = false;
+  if (hover.value) {
+    activeMode.value = event.target.id; // Update the active mode.
+    hover.value = false;
   } else {
-    document.documentElement.style.setProperty('background', 'var(--color-background)');
+    activeMode.value = ''; // Reset the active mode.
   }
 }
+
+// Compute the background style based on the active mode and hover state. Triggered when any of the dependencies change (here: ref: activeMode)
+const backgroundStyle = computed(() => {
+  if (activeMode.value) {
+    return { background: modes[activeMode.value] };
+  }
+  return { background: 'var(--color-background)' };
+});
 
 
 function createOrDestroy() {
@@ -48,54 +52,57 @@ let createDestroy = createOrDestroy();
 </script>
 
 <template>
-  <NavBarLoggedIn />
-  <div class="home">
-    <div class="instructions">
-      <h1>{{createDestroy}} your Narrative</h1>
-      <h3>Choose Between Three Writing Modes</h3>
-    </div>
-    <div class="mode-picker">
-    <RouterLink class="no-background" to="/freeWriting">
-      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
-        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
-        </svg>
-          <button>Free Journal</button>
+  <div :style="backgroundStyle">
+
+    <NavBarLoggedIn />
+    <div class="home">
+      <div class="instructions">
+        <h1>{{createDestroy}} your Narrative</h1>
+        <h3>Choose Between Three Writing Modes</h3>
       </div>
-    </RouterLink>
-    <RouterLink class="no-background" to="/selectSubmodes">
-      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
-        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
-        </svg>
-        <button>Prompted Journal</button>
+      <div class="mode-picker">
+      <RouterLink class="no-background" to="/freeWriting">
+        <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="free">
+          <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="free-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#3060FF"/>
+          </svg>
+            <button>Free Journal</button>
+        </div>
+      </RouterLink>
+      <RouterLink class="no-background" to="/selectSubmodes">
+        <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
+          <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
+          </svg>
+          <button>Prompted Journal</button>
+        </div>
+      </RouterLink>
+      <RouterLink class="no-background" to="/selectSubmodes">
+      <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
+          <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
+          </svg>
+            <button>Story</button>
+        </div>
+      </RouterLink>
       </div>
-    </RouterLink>
-    <RouterLink class="no-background" to="/selectSubmodes">
-    <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
-        <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
-        </svg>
-          <button>Story</button>
+      <div class="card-grid">
+        <div class="archive">
+          <p>Archive:</p>
+        </div>
+        <div class="posts">
+          <p>{{posts}} Posts</p>
+        </div>
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
+        <HomeCardPost />
       </div>
-    </RouterLink>
-    </div>
-    <div class="card-grid">
-      <div class="archive">
-        <p>Archive:</p>
-      </div>
-      <div class="posts">
-        <p>{{posts}} Posts</p>
-      </div>
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
-      <HomeCardPost />
     </div>
   </div>
 </template>
