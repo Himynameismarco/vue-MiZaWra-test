@@ -167,6 +167,7 @@ input {
 }
 
 .theme-button {
+  font-family: var(--font-family-standard);
   background-color: var(--element-bg);
   border-radius: 8px;
   padding: 12px 24px;
@@ -180,6 +181,7 @@ input {
 }
 
 .theme-button-activated {
+  font-family: var(--font-family-standard);
   border-radius: 8px;
   padding: 12px 24px;
   font-size: 15px;
@@ -196,6 +198,8 @@ input {
 }
 
 .selectLang {
+  font-family: var(--font-family-standard);
+  font-size: 15px;
   border-radius: 8px;
   border: 1.5px solid #B2B2B2;
   width: 242px;
@@ -238,8 +242,6 @@ input {
 }
 
 .save {
-  height: 41px;
-
   margin-top: 40px;
   margin-bottom: 65px;
   padding: 12px 24px;
