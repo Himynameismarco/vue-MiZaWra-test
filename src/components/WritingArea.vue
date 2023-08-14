@@ -109,6 +109,8 @@ export default {
   padding: 0;
   border: none;
   font-size: var(--font-size-smaller-medium);
+  color: var(--color-text);
+  background-color: transparent;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
@@ -140,6 +142,7 @@ export default {
   flex: 1;
   border: none;
   overflow-y: scroll;
+  background-color: transparent;
   line-height: 28px;
   font-size: var(--font-size-medium);
   color: var(--color-text);
