@@ -90,15 +90,23 @@ nav {
   width: 100%;
 }
 
-nav a.router-link-exact-active {
+.router-link-active {
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.router-link-active:hover {
+  color: var(--element-hovered);
 }
 
-nav a:first-of-type {
+a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+a.router-link-exact-active:hover {
+  color: var(--element-hovered);
+}
+
+a:first-of-type {
   border: 0;
 }
 

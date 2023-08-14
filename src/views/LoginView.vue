@@ -30,4 +30,18 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
   margin-bottom: .8vh;
 }
 
+.logged-out-button {
+  margin-top: 60px;
+
+  height: 45px;
+  border: 1px solid rgba(102, 102, 102, 0.1);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  font-weight: 400;
+  font-size: 19px; /* TODO: make variable */
+  line-height: 150%;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 </style>
