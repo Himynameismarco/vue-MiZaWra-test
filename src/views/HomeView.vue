@@ -9,7 +9,7 @@ const el = ref(null)
 const {width, height} = useElementSize(el)
 const posts = 12
 
-let hover = false
+let hover = ref(false);
 
 function changeBackground(event: any) {
   const modes = ['free', 'prompted', 'story'];
