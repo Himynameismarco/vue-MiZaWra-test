@@ -10,6 +10,8 @@
   --element-bg-dm: #212125;
   --element-bg-hovered-lm: #F3F3F3;
   --element-bg-hovered-dm: #313134;
+  --element-hovered-lm: #9E9E9E;
+  --element-hovered-dm: rgba(158, 158, 158, 0.3); /* same color as lm, but with opacity */
 
   /* Border Colors */
   --element-border-color-lm: rgba(102, 102, 102, 10%);
@@ -71,6 +73,7 @@
   --color-input-borders: var(--dark-gray);
   --element-bg: var(--element-bg-lm);
   --element-bg-hovered: var(--element-bg-hovered-lm);
+  --element-hovered: var(--element-hovered-lm);
   --element-border-hovered: var(--element-border-color-lm);
   --gradient-color-blue: var(--gradient-color-blue-lm);
   --gradient-color-green: var(--gradient-color-green-lm);
@@ -87,6 +90,7 @@
   --color-input-borders: var(--dark-gray);
   --element-bg: var(--element-bg-dm);
   --element-bg-hovered: var(--element-bg-hovered-dm);
+  --element-hovered: var(--element-hovered-dm);
   --element-border-hovered: var(--element-border-color-lm); /* Note: Same as light mode */
   --gradient-color-blue: var(--gradient-color-blue-dm);
   --gradient-color-green: var(--gradient-color-green-dm);

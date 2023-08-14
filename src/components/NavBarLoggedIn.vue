@@ -46,5 +46,13 @@ a {
   color: var(--color-text);
 }
 
+a:hover {
+  color: var(--element-hovered);
+}
+
+.icons svg:hover path {
+  fill: var(--element-hovered);
+}
+
 
 </style>

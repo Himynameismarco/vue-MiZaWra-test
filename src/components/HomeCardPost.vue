@@ -65,6 +65,10 @@
   margin-right: 0;
 }
 
+.info svg:hover path {
+  fill: var(--element-hovered);
+}
+
 .preview {
   font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   padding: 24px 0 24px 0;
