@@ -2,14 +2,13 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import HomeCardPost from "@/components/HomeCardPost.vue";
 
-import { ref, computed } from 'vue'
+import {ref, computed, onMounted} from 'vue'
 import { useElementSize } from '@vueuse/core'
+import homeService from "@/services/homeService";
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
 const posts = 12
-
-
 
 const modes = {
   free: 'var(--gradient-color-blue)',
@@ -19,6 +18,20 @@ const modes = {
 
 let hover = ref(false);
 let activeMode = ref(''); // Create a ref to store the current active mode.
+const client = ref({}); // You can also define a more specific type if known
+const countJournals = ref(0);
+
+const fetchData = async () => {
+  try {
+    const response = await homeService.fetchHomeData();
+    client.value = response.client;
+    countJournals.value = response.countJournals;
+  } catch (error) {
+    console.error('Failed to fetch home data:', error);
+  }
+};
+
+onMounted(fetchData);
 
 function changeBackground(event: any) {
   if (hover.value) {

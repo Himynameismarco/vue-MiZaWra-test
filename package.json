@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
+    "axios": "^1.4.0",
     "mitt": "^3.0.0",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
