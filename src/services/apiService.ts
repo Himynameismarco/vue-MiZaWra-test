@@ -4,12 +4,7 @@ import type { AxiosResponse, AxiosInstance } from 'axios';
 const BASE_URL = 'http://localhost:8080';  // Replace with your backend URL
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: BASE_URL,
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'application/json',
-      'Accept': 'application/json'
-  },
+  baseURL: BASE_URL
 });
 
 export default {

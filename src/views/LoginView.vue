@@ -1,5 +1,23 @@
 <script setup lang="ts">
 import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
+import apiClient from '../services/apiService';
+
+async function login(evt) {
+  evt.preventDefault();
+  const credentials = {
+    username: document.querySelector("#email").value,
+    password: document.querySelector("#password").value
+  };
+  await apiClient
+    .post("/login", credentials)
+    .then((response) => {
+      console.log("Login successful:", response);
+    })
+    .catch((error) => {
+      // Handle login failure, e.g., display an error message
+      console.log(error);
+    });
+}
 
 </script>
 <template>
@@ -12,7 +30,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
         <h1 class="heading-logged-out">Welcome Back</h1>
         <h3 class="heading-logged-out">Don't have an account? <RouterLink to="/register">Sign Up</RouterLink></h3>
       </div>
-      <form class="forms" action="register" method="post">
+      <form class="forms" @submit="login">
         <label for="email">E-Mail</label>
         <input type="email" id="email" name="email">
         <label for="password">Password</label>
