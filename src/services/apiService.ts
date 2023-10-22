@@ -7,6 +7,18 @@ const apiClient: AxiosInstance = axios.create({
   baseURL: BASE_URL
 });
 
+apiClient.interceptors.request.use((config) => {
+  // get token from sessionStorage
+  const token = sessionStorage.getItem('authToken');
+  if (token) {
+    config.headers['Authorization'] = 'Bearer ' + token;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
+
 export default {
   post<T = any>(endpoint: string, body: any): Promise<T> {
     return apiClient.post(endpoint, body).then((response: AxiosResponse<T>) => response.data);
