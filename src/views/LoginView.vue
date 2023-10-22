@@ -12,6 +12,7 @@ async function login(evt) {
     .post("/login", credentials)
     .then((response) => {
       console.log("Login successful:", response);
+      sessionStorage.setItem("authToken", response);
       window.location.href = '/';
     })
     .catch((error) => {
