@@ -24,6 +24,7 @@ const countJournals = ref(0);
 const fetchData = async () => {
   try {
     const response = await homeService.fetchHomeData();
+    console.log("response: " + response);
     client.value = response.client;
     countJournals.value = response.countJournals;
   } catch (error) {
