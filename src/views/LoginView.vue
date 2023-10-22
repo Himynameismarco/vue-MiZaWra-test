@@ -17,6 +17,9 @@ async function login(evt) {
     .catch((error) => {
       // Handle login failure, e.g., display an error message
       console.log(error);
+      if (error.code == "ERR_BAD_REQUEST") {
+        document.querySelector("#err-incorrect-pw").style.display = "block";
+      }
     });
 }
 
@@ -36,7 +39,10 @@ async function login(evt) {
         <input type="email" id="email" name="email">
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
-        <RouterLink to="/forgotPassword" class="sub-password">Forgot password?</RouterLink>
+        <div class="sub-password">
+          <div id="err-incorrect-pw">Incorrect Password or E-Mail</div>
+          <RouterLink to="/forgotPassword">Forgot password?</RouterLink>
+        </div>
         <button class="logged-out-button">Login</button>
       </form>
     </div>
@@ -44,6 +50,12 @@ async function login(evt) {
 </template>
 
 <style scoped>
+
+#err-incorrect-pw {
+  color: var(--orange);
+  margin-right: 20px;
+  display: none;
+}
 
 #password {
   margin-bottom: .8vh;
