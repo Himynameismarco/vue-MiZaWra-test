@@ -187,6 +187,10 @@ button {
   margin-bottom: 287px;
 }
 
+.forms input {
+  padding: 24px;
+}
+
 .sub-password {
   display: flex;
   font-size: 11px;
