@@ -50,6 +50,7 @@ watch(() => props.entry.body, (newBody) => {
 .item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: var(--element-bg);
   border-width: var(--logged-in-border-width);
   border-color: var(--element-border-color-lm);
@@ -58,6 +59,9 @@ watch(() => props.entry.body, (newBody) => {
   border-radius: 30px;
   padding: 25px 28px;
   width: var(--card-width);
+}
+.info:last-of-type {
+  margin-top: auto;  /* Push the last .info block to the bottom */
 }
 
 .item:hover {
