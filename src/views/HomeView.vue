@@ -8,7 +8,6 @@ import homeService from "@/services/homeService";
 
 const el = ref(null)
 const {width, height} = useElementSize(el)
-const posts = 12
 
 const modes = {
   free: 'var(--gradient-color-blue)',
@@ -26,7 +25,9 @@ const fetchData = async () => {
     const response = await homeService.fetchHomeData();
     console.log("response: ", response);
     client.value = response.client;
+    console.log("client.value: ", client.value)
     countJournals.value = response.countJournals;
+    console.log("countJournals.value: ", countJournals.value )
   } catch (error) {
     console.error('Failed to fetch home data:', error);
   }
@@ -105,7 +106,7 @@ let createDestroy = createOrDestroy();
           <p>Archive:</p>
         </div>
         <div class="posts">
-          <p>{{posts}} Posts</p>
+          <p>{{countJournals}} Posts</p>
         </div>
         <HomeCardPost />
         <HomeCardPost />
