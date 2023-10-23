@@ -19,11 +19,13 @@ let hover = ref(false);
 let activeMode = ref(''); // Create a ref to store the current active mode.
 const client = ref({}); // You can also define a more specific type if known
 const countJournals = ref(0);
+const journalEntries = ref([]);
 
 const fetchData = async () => {
   try {
     const response = await homeService.fetchHomeData();
     console.log("response: ", response);
+    journalEntries.value = response;
     client.value = response.client;
     console.log("client.value: ", client.value)
     countJournals.value = response.countJournals;
@@ -108,15 +110,7 @@ let createDestroy = createOrDestroy();
         <div class="posts">
           <p>{{countJournals}} Posts</p>
         </div>
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
-        <HomeCardPost />
+        <HomeCardPost v-for="entry in journalEntries" :key="entry.id" :entry="entry" />
       </div>
     </div>
   </div>
