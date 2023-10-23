@@ -1,10 +1,28 @@
 // HomeCardPost.vue
 <script setup lang="ts">
-import { ref, defineProps } from 'vue';
+import { ref, watch, defineProps } from 'vue';
 
 const props = defineProps({
   entry: Object
 });
+
+const preview = ref<string>('');
+
+const formatBody = (body: string) => {
+  const maxChars = 120;
+
+  if (body.length > maxChars) {
+    body = body.substring(0, maxChars);
+    body = body.substring(0, body.lastIndexOf(' '));
+    body += '...';
+  }
+
+  return body;
+};
+
+watch(() => props.entry.body, (newBody) => {
+  preview.value = formatBody(newBody);
+}, { immediate: true });
 
 </script>
 
@@ -16,7 +34,7 @@ const props = defineProps({
         <circle class="prompted" cx="9.5" cy="9.5" r="9.5" fill="none"/>
       </svg>
     </div>
-    <p class="preview">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my...</p>
+    <p class="preview">{{preview}}</p>
     <div class="info">
       <h2>{{ entry.postedDate }}</h2>
       <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
