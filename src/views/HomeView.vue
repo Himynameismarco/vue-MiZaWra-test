@@ -21,12 +21,33 @@ const client = ref({}); // You can also define a more specific type if known
 const countJournals = ref(0);
 const journalEntries = ref([]);
 
+function generateDefaultEntries(missingCount: number) {
+  const defaultEntries = [];
+  for (let i = 0; i < missingCount; i++) {
+    defaultEntries.push({
+      id: `default-${i}`,
+      title: 'I Could Be Your Entry',
+      body: 'It seems ... you have less than 9 journal entries: time to write! I will disappear as soon as you create more than niii...',
+      postedDate: new Date().toLocaleDateString()
+    });
+  }
+  return defaultEntries;
+}
+
+
 const fetchData = async () => {
   try {
     const response = await homeService.fetchHomeData();
     console.log("response: ", response);
     journalEntries.value = response;
     client.value = response.client;
+
+    const missingEntriesCount = 9 - journalEntries.value.length;
+    if (missingEntriesCount > 0) {
+      const defaultEntries = generateDefaultEntries(missingEntriesCount);
+      journalEntries.value.push(...defaultEntries);
+    }
+
     console.log("client.value: ", client.value)
     countJournals.value = response.countJournals;
     console.log("countJournals.value: ", countJournals.value )
