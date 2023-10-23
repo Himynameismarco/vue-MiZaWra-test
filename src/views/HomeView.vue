@@ -2,7 +2,7 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import HomeCardPost from "@/components/HomeCardPost.vue";
 
-import {ref, computed, onMounted} from 'vue'
+import {ref, computed, onMounted, onUnmounted} from 'vue'
 import { useElementSize } from '@vueuse/core'
 import homeService from "@/services/homeService";
 
@@ -20,6 +20,9 @@ let activeMode = ref(''); // Create a ref to store the current active mode.
 const client = ref({}); // You can also define a more specific type if known
 const countJournals = ref(0);
 const journalEntries = ref([]);
+const entriesToDisplay = ref(9);
+const displayEntries = computed(() => journalEntries.value.slice(0, entriesToDisplay.value));
+
 
 function generateDefaultEntries(missingCount: number) {
   const defaultEntries = [];
@@ -32,6 +35,13 @@ function generateDefaultEntries(missingCount: number) {
     });
   }
   return defaultEntries;
+}
+
+const handleScroll = () => {
+  const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+  if (nearBottom) {
+    entriesToDisplay.value += 3;
+  }
 }
 
 
@@ -55,7 +65,15 @@ const fetchData = async () => {
   }
 };
 
-onMounted(fetchData);
+
+onMounted(() => {
+  fetchData();
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 function changeBackground(event: any) {
   if (hover.value) {
@@ -130,7 +148,7 @@ let createDestroy = createOrDestroy();
         <div class="posts">
           <p>{{countJournals}} Posts</p>
         </div>
-        <HomeCardPost v-for="entry in journalEntries" :key="entry.id" :entry="entry" />
+        <HomeCardPost v-for="entry in displayEntries" :key="entry.id" :entry="entry" />
       </div>
     </div>
   </div>

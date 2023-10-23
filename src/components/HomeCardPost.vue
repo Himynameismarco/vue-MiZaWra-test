@@ -9,6 +9,9 @@ const props = defineProps({
 const preview = ref<string>('');
 
 const formatBody = (body: string) => {
+  // Safeguard against undefined values
+  if (!body) return '';
+
   const maxChars = 120;
 
   if (body.length > maxChars) {
@@ -20,10 +23,12 @@ const formatBody = (body: string) => {
   return body;
 };
 
-watch(() => props.entry.body, (newBody) => {
-  preview.value = formatBody(newBody);
+watch(() => props.entry?.body, (newBody) => {
+  // Ensure newBody is defined before processing
+  if (newBody) {
+    preview.value = formatBody(newBody);
+  }
 }, { immediate: true });
-
 </script>
 
 <template>
