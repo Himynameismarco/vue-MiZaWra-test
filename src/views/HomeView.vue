@@ -38,19 +38,18 @@ function generateDefaultEntries(missingCount: number) {
 const fetchData = async () => {
   try {
     const response = await homeService.fetchHomeData();
-    console.log("response: ", response);
+    console.log("response from fetchHomeData(): ", response);
     journalEntries.value = response;
+    countJournals.value = await homeService.getNumberOfJournals();
     client.value = response.client;
 
-    const missingEntriesCount = 9 - journalEntries.value.length;
+    const missingEntriesCount = 9 - countJournals.value;
     if (missingEntriesCount > 0) {
       const defaultEntries = generateDefaultEntries(missingEntriesCount);
       journalEntries.value.push(...defaultEntries);
     }
 
     console.log("client.value: ", client.value)
-    countJournals.value = response.countJournals;
-    console.log("countJournals.value: ", countJournals.value )
   } catch (error) {
     console.error('Failed to fetch home data:', error);
   }
