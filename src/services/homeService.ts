@@ -2,7 +2,7 @@ import apiClient from './apiService';
 
 const homeService = {
   fetchHomeData() {
-    return apiClient.get('/api/home');
+    return apiClient.get('/journal/get');
   },
 };
 
