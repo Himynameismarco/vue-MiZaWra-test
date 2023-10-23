@@ -1,12 +1,24 @@
 <template>
-  <button class="save">
+  <button @click="save();" class="save">
     Save + Exit
   </button>
 </template>
-
+//todo add atributte of prompt id
 <script lang="ts">
+import apiClient from '../services/apiService';
+
 export default {
-  name: "WritingSaveButton.vue"
+  name: "WritingSaveButton.vue",
+  methods: {
+    async save() {
+        const journalEntry = {
+            //promptId: document.getElementById("prompt").value,
+            title: document.getElementById("title").value,
+            body: document.getElementById("narrative").value
+        };
+        await apiClient.post("/journal/save", journalEntry);
+    }
+  }
 }
 </script>
 

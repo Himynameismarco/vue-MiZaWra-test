@@ -44,7 +44,7 @@ export default {
 <template>
   <div class="writing-container">
     <div class="writing-header">
-      <textarea class="items">Give Your Text a Title</textarea>
+      <textarea id="title" class="items">Give Your Text a Title</textarea>
     </div>
     <div class="icons">
       <svg class="icon" @mouseenter="hover = true" @mouseleave="hover = false" @click="hidePrompt($event);" width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
