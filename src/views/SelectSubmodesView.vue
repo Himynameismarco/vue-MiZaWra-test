@@ -2,7 +2,7 @@
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
 
-const writingPage = "/promptedWriting"
+const writingPage = "/promptedWriting" //TODO: Should be "/writingPage" so that without ?mode we have free journal
 
 const submodes = [
   {
