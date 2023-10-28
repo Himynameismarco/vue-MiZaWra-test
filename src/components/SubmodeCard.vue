@@ -1,18 +1,27 @@
-<template>
-  <div class="submode">
-    <RouterLink  class="no-background" to="/promptedWriting">
-      <h2 class="heading">philosophical prompt</h2>
-      <p>Want to try to answer the big questions today?
-        Go for this sub-mode!</p>
-    </RouterLink>
-  </div>
-</template>
 
 <script lang="ts">
 export default {
-  name: "SubmodeCard"
+  name: "SubmodeCard",
+  props: {
+    submode: Object
+  }
 }
 </script>
+
+
+
+<template>
+  <div>
+    <div class="submode">
+      <RouterLink class="no-background" :to="submode.to">
+        <h2 class="heading">{{ submode.title }}</h2>
+        <p>{{ submode.description }}</p>
+      </RouterLink>
+    </div>
+  </div>
+</template>
+
+
 
 <style scoped>
 
