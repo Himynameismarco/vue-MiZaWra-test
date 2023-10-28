@@ -4,7 +4,7 @@ import SubmodeCard from '../components/SubmodeCard.vue'
 import { useRoute } from 'vue-router';
 
 
-const writingPage = "/promptedWriting" //TODO: Should be "/writingPage" so that without ?mode we have free journal
+const writingPage = "/writing" 
 const route = useRoute();
 const selectedMode = route.query.mode;
 console.log("selectedMode: ", selectedMode);
