@@ -17,6 +17,7 @@ export default {
             body: document.getElementById("narrative").value
         };
         await apiClient.post("/journal/save", journalEntry);
+        window.location.href = '/';
     }
   }
 }
