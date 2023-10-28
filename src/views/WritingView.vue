@@ -2,6 +2,10 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
+import { useRoute } from 'vue-router';
+const route = useRoute();
+const selectedSubmode = route.query.submode;
+console.log("selectedSubmode: ", selectedSubmode);
 </script>
 
 <template>
