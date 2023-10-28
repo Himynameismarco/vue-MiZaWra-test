@@ -2,14 +2,20 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
+import apiClient from '../services/apiService';
+
+let urlParams = new URLSearchParams(window.location.search);
+let mode = urlParams.get('mode');
+
+let modePrompt = await apiClient.get("/journal/prompt", {mode: mode});
 </script>
 
 <template>
   <NavBarLoggedIn/>
   <div class="container" id="container">
     <div class="prompt" id="prompt">
-      <p class="submode-label">philosophical prompt</p>
-      <h2>What can you hope for?</h2>
+      <p class="submode-label">{{ selectedMode }}</p>
+      <h2>{{ modePrompt }}</h2>
     </div>
     <WritingArea/>
     <WritingSaveButton/>

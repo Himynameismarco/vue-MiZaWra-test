@@ -10,8 +10,9 @@ onMounted(() => {
 </script>
 
 <template>
-
+<Suspense>
   <RouterView />
+  </Suspense>
 </template>ls
 
 <style scoped>
