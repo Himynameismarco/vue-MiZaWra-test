@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
+import { useRoute } from 'vue-router';
+
 
 const writingPage = "/promptedWriting" //TODO: Should be "/writingPage" so that without ?mode we have free journal
+const route = useRoute();
+const selectedMode = route.query.mode;
+console.log("selectedMode: ", selectedMode);
 
-const submodes = [
+let modeDescription;
+let submodes;
+const submodesPrompted = [
   {
     to: writingPage + "?mode=PHILOSOPHICAL",
     title: "Philosophical Prompt",
@@ -26,6 +33,31 @@ const submodes = [
     description: "Feel like tackling a difficult personal moment? This sub-mode is for you."
   }
 ];
+const submodesStory = [
+  {
+    to: writingPage + "?mode=WORD",
+    title: "One Word Prompt",
+    description: "You guessed it. You get a word, you write a story!"
+  },
+  {
+    to: writingPage + "?mode=SENTENCE",
+    title: "Group of Words Prompt",
+    description: "You get a list of words and each word has to appear in your story."
+  },
+  {
+    to: writingPage + "?mode=PARAGRAPH",
+    title: "Paragraph Prompt",
+    description: "You get the start of a story: Feel free to change it or just continue."
+  }
+];
+
+if (selectedMode === "Story") {
+  modeDescription = "Each sub-mode will give you a prompt to write a brand new story."
+  submodes = submodesStory;
+} else {
+  modeDescription = "Each sub-mode will give you a question to answer in your journal entry."
+  submodes = submodesPrompted;
+}
 
 function deleteBackground() {
   document.documentElement.style.setProperty('background', 'var(--color-background)');
@@ -37,7 +69,7 @@ function deleteBackground() {
   <div class="selectModes">
     <div class="instructions">
       <h1>What Do You Want to Write About?</h1>
-      <h3>Each sub-mode will give you a question to answer in your journal entry.</h3>
+      <h3>{{modeDescription}}</h3>
     </div>
     <div class="submode-picker">
       <div class="submode-picker">
