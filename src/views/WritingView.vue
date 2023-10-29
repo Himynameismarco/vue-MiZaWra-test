@@ -3,9 +3,14 @@ import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
 import { useRoute } from 'vue-router';
+import apiClient from '../services/apiService';
+import { ref, onMounted } from 'vue';
 const route = useRoute();
-const selectedSubmode = route.query.submode;
-console.log("selectedSubmode: ", selectedSubmode);
+let modePrompt = ref('What can you hope for?');
+
+onMounted(()=>{
+    apiClient.get("/journal/prompt", {mode: route.query.submode}).then((response)=>{modePrompt.value = response});
+})
 </script>
 
 <template>
@@ -13,7 +18,7 @@ console.log("selectedSubmode: ", selectedSubmode);
   <div class="container" id="container">
     <div class="prompt" id="prompt">
       <p class="submode-label">philosophical prompt</p>
-      <h2>What can you hope for?</h2>
+      <h2>{{modePrompt}}</h2>
     </div>
     <WritingArea/>
     <WritingSaveButton/>
