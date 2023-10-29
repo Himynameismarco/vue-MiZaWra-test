@@ -25,9 +25,10 @@ const router = createRouter({
       component: () => import('../views/ForgotPassword.vue')
     },
     {
-      path: '/selectSubmodes',
+      path: '/selectSubmodes/:mode', // :mode dynamic segment of the rout
       name: 'selectSubmodes',
-      component: () => import('../views/SelectSubmodesView.vue')
+      component: () => import('../views/SelectSubmodesView.vue'),
+      props: true
     },
     {
       path: '/writing',

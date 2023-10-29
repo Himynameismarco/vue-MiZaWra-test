@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { ref, defineProps } from 'vue';
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
-import { useRoute } from 'vue-router';
 
+const { mode } = defineProps(['mode']);
 
-const writingPage = "/writing"
-const route = useRoute();
-const selectedMode = route.query.mode;
-console.log("selectedMode: ", selectedMode);
+const writingPage = "/writing";
+
+console.log("Mode: ", mode);
 
 let modeDescription;
 let submodes;
@@ -51,7 +51,7 @@ const submodesStory = [
   }
 ];
 
-if (selectedMode === "Story") {
+if (mode === "Story") {
   modeDescription = "Each sub-mode will give you a prompt to write a brand new story."
   submodes = submodesStory;
 } else {

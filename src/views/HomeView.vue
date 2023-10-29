@@ -124,7 +124,7 @@ let createDestroy = createOrDestroy();
             <button>Free Journal</button>
         </div>
       </RouterLink>
-      <RouterLink class="no-background" :to="{ path: '/selectSubmodes', query: { mode: 'Prompted Journal' } }">
+      <RouterLink class="no-background" :to="`/selectSubmodes/Prompted Journal`">
         <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="prompted">
           <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
@@ -132,7 +132,7 @@ let createDestroy = createOrDestroy();
           <button>Prompted Journal</button>
         </div>
       </RouterLink>
-      <RouterLink class="no-background" :to="{ path: '/selectSubmodes', query: { mode: 'Story' } }">
+      <RouterLink class="no-background" :to="`/selectSubmodes/Story`">
         <div @mouseenter="hover = true; changeBackground($event);" @mouseleave="changeBackground($event);" class="mode" id="story">
           <svg class="icon" width="56" height="56" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="story-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#FDCAB9"/>
