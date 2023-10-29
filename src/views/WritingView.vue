@@ -6,18 +6,21 @@ import { useRoute } from 'vue-router';
 import apiClient from '../services/apiService';
 import { ref, onMounted } from 'vue';
 const route = useRoute();
+const title = ref(route.params.title);
 let modePrompt = ref('What can you hope for?');
 
-onMounted(()=>{
-    apiClient.get("/journal/prompt", {mode: route.query.submode}).then((response)=>{modePrompt.value = response});
-})
+onMounted(() => {
+  apiClient.get("/journal/prompt", { mode: route.params.submode }).then((response) => {
+    modePrompt.value = response;
+  });
+});
 </script>
 
 <template>
   <NavBarLoggedIn/>
   <div class="container" id="container">
     <div class="prompt" id="prompt">
-      <p class="submode-label">philosophical prompt</p>
+      <p class="submode-label">{{title}}</p>
       <h2>{{modePrompt}}</h2>
     </div>
     <WritingArea/>

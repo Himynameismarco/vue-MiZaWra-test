@@ -14,7 +14,7 @@ export default {
   <div>
     <div class="submode">
       <RouterLink class="no-background" :to="submode.to">
-        <h2 class="heading">{{ submode.title }}</h2>
+        <h2 class="heading">{{ submode.to.params.title }}</h2>
         <p>{{ submode.description }}</p>
       </RouterLink>
     </div>

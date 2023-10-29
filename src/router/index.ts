@@ -31,10 +31,12 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/writing',
+      path: '/writing/:submode/:title',
       name: 'writing',
-      component: () => import('../views/WritingView.vue')
+      component: () => import('../views/WritingView.vue'),
+      props: true
     },
+
     {
       path: '/freeWriting',
       name: 'freeWriting',

@@ -5,7 +5,7 @@ import SubmodeCard from '../components/SubmodeCard.vue'
 
 const { mode } = defineProps(['mode']);
 
-const writingPage = "/writing";
+const writingPage = "writing";
 
 console.log("Mode: ", mode);
 
@@ -13,40 +13,76 @@ let modeDescription;
 let submodes;
 const submodesPrompted = [
   {
-    to: { path: writingPage, query: { submode: 'PHILOSOPHICAL' } },
-    title: "Philosophical Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "PHILOSOPHICAL",
+        title: "Philosophical Prompt"
+      }
+    },
     description: "Want to try to answer the big questions today? Go for this sub-mode!"
   },
   {
-    to: { path: writingPage, query: { submode: 'POSITIVE' } },
-    title: "Positive Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "POSITIVE",
+        title: "Positive Prompt"
+      }
+    },
     description: "Feel like you need something uplifting today? Check out this sub-mode."
   },
   {
-    to: { path: writingPage, query: { submode: 'NEUTRAL' } },
-    title: "Neutral Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "NEUTRAL",
+        title: "Neutral Prompt"
+      }
+    },
     description: "Ready for a few questions you should ask yourself and reflect on? Ok, go!"
   },
   {
-    to: { path: writingPage, query: { submode: 'NEGATIVE' } },
-    title: "Negative Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "NEGATIVE",
+        title: "Negative Prompt"
+      }
+    },
     description: "Feel like tackling a difficult personal moment? This sub-mode is for you."
   }
 ];
+
 const submodesStory = [
   {
-    to: { path: writingPage, query: { submode: 'WORD' } },
-    title: "One Word Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "WORD",
+        title: "One Word Prompt"
+      }
+    },
     description: "You guessed it. You get a word, you write a story!"
   },
   {
-    to: { path: writingPage, query: { submode: 'SENTENCE' } },
-    title: "Group of Words Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "SENTENCE",
+        title: "Group of Words Prompt"
+      }
+    },
     description: "You get a list of words and each word has to appear in your story."
   },
   {
-    to: { path: writingPage, query: { submode: 'PARAGRAPH' } },
-    title: "Paragraph Prompt",
+    to: {
+      name: writingPage,
+      params: {
+        submode: "PARAGRAPH",
+        title: "Paragraph Prompt"
+      }
+    },
     description: "You get the start of a story: Feel free to change it or just continue."
   }
 ];
