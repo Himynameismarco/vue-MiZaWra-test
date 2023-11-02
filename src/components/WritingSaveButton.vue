@@ -3,7 +3,6 @@
     Save + Exit
   </button>
 </template>
-//todo add atributte of prompt id
 <script lang="ts">
 import apiClient from '../services/apiService';
 
@@ -12,7 +11,7 @@ export default {
   methods: {
     async save() {
         const journalEntry = {
-            //promptId: document.getElementById("prompt").value,
+            promptId: document.getElementById("prompt").getAttribute("prompt-id"),
             title: document.getElementById("title").value,
             body: document.getElementById("narrative").value
         };

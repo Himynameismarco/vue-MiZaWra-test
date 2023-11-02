@@ -8,10 +8,12 @@ import { ref, onMounted } from 'vue';
 const route = useRoute();
 const title = ref(route.params.title);
 let modePrompt = ref('What can you hope for?');
+let promptId = ref(null);
 
 onMounted(() => {
   apiClient.get("/journal/prompt", { mode: route.params.submode }).then((response) => {
-    modePrompt.value = response;
+    promptId = response.id;
+    modePrompt.value = response.prompt;
   });
 });
 </script>
@@ -19,7 +21,7 @@ onMounted(() => {
 <template>
   <NavBarLoggedIn/>
   <div class="container" id="container">
-    <div class="prompt" id="prompt">
+    <div class="prompt" id="prompt" :prompt-id="promptId">
       <p class="submode-label">{{title}}</p>
       <h2>{{modePrompt}}</h2>
     </div>
