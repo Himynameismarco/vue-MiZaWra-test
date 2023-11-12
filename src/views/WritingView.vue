@@ -27,7 +27,7 @@ if (route.params.submode) {
       <h2>{{modePrompt}}</h2>
     </div>
     <WritingArea/>
-    <WritingSaveButton/>
+    <WritingSaveButton :journalId="route.params.journalId"/>
   </div>
 </template>
 

@@ -1,26 +1,30 @@
-<template>
-  <button @click="save();" class="save">
-    Save + Exit
-  </button>
-</template>
 <script lang="ts">
 import apiClient from '../services/apiService';
 
 export default {
   name: "WritingSaveButton.vue",
+  props: ['journalId'],
   methods: {
-    async save() {
+    async save(props) {
         const journalEntry = {
+            id: this.journalId,
             promptId: document.getElementById("prompt")?.getAttribute("prompt-id"),
             title: document.getElementById("title").value,
             body: document.getElementById("narrative").value
         };
+        console.log(journalEntry);
         await apiClient.post("/journal", journalEntry);
         window.location.href = '/';
     }
   }
 }
 </script>
+
+<template>
+  <button @click="save();" class="save">
+    Save + Exit
+  </button>
+</template>
 
 <style scoped>
 
