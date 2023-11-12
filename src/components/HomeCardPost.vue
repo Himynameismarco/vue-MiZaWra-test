@@ -1,10 +1,21 @@
 // HomeCardPost.vue
 <script setup lang="ts">
 import { ref, watch, defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 
+const route = useRouter();
 const props = defineProps({
   entry: Object
 });
+
+function editJournal(event) {
+    route.push({
+        name: "edit",
+        params: {
+            journalId: props.entry.id
+        }
+    })
+}
 
 const preview = ref<string>('');
 
@@ -32,7 +43,7 @@ watch(() => props.entry?.body, (newBody) => {
 </script>
 
 <template>
-  <div class="item">
+  <div @click="editJournal" class="item">
     <div class="info">
       <h2>{{ entry.title }}</h2>
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,6 +75,7 @@ watch(() => props.entry?.body, (newBody) => {
   border-radius: 30px;
   padding: 25px 28px;
   width: var(--card-width);
+  cursor: pointer;
 }
 .info:last-of-type {
   margin-top: auto;  /* Push the last .info block to the bottom */

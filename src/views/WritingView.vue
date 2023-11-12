@@ -4,24 +4,25 @@ import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
 import { useRoute } from 'vue-router';
 import apiClient from '../services/apiService';
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+
 const route = useRoute();
 const title = ref(route.params.title);
 let modePrompt = ref('What can you hope for?');
 let promptId = ref(null);
 
-onMounted(() => {
-  apiClient.get("/journal/prompt", { mode: route.params.submode }).then((response) => {
-    promptId = response.id;
-    modePrompt.value = response.prompt;
-  });
-});
+if (route.params.submode) {
+    apiClient.get("/prompt/random", { mode: route.params.submode }).then((response) => {
+        promptId = response.id;
+        modePrompt.value = response.prompt;
+    });
+}
 </script>
 
 <template>
   <NavBarLoggedIn/>
   <div class="container" id="container">
-    <div class="prompt" id="prompt" :prompt-id="promptId">
+    <div v-if="route.params.submode" class="prompt" id="prompt" :prompt-id="promptId">
       <p class="submode-label">{{title}}</p>
       <h2>{{modePrompt}}</h2>
     </div>

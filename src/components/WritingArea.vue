@@ -1,5 +1,8 @@
 <script lang="ts">
 import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import apiClient from '../services/apiService';
+
 export default {
   name: "WritingArea.vue",
   methods: {
@@ -38,13 +41,23 @@ export default {
 
     return { hover, changeBoxshadow, toggleTime, showTime };
   },
+  mounted() {
+    const route = useRoute();
+    if (route.params.journalId) {
+        apiClient.get("/journal", { journalId: route.params.journalId }).then((response) => {
+            document.getElementById("prompt")?.setAttribute("prompt-id", response.promptId);
+            title.value = response.title;
+            narrative.value = response.body;
+        });
+      }
+  }
 }
 </script>
 
 <template>
   <div class="writing-container">
     <div class="writing-header">
-      <textarea id="title" class="items">Give Your Text a Title</textarea>
+      <textarea id="title" ref="title" class="items" placeholder="Give Your Text a Title"></textarea>
     </div>
     <div class="icons">
       <svg class="icon" @mouseenter="hover = true" @mouseleave="hover = false" @click="hidePrompt($event);" width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +77,7 @@ export default {
       <div v-if="showTime" class="time">15:00</div>
     </div>
     <div class="writing-area">
-      <textarea id="narrative" placeholder="Start typing here ..."></textarea>
+      <textarea id="narrative" ref="narrative" placeholder="Start typing here ..."></textarea>
     </div>
     <div class="writing-footer">
         <h3 class="items">04/07/23</h3>

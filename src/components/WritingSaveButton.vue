@@ -11,7 +11,7 @@ export default {
   methods: {
     async save() {
         const journalEntry = {
-            promptId: document.getElementById("prompt").getAttribute("prompt-id"),
+            promptId: document.getElementById("prompt")?.getAttribute("prompt-id"),
             title: document.getElementById("title").value,
             body: document.getElementById("narrative").value
         };

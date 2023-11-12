@@ -36,6 +36,12 @@ const router = createRouter({
       component: () => import('../views/WritingView.vue'),
       props: true
     },
+    {
+      path: '/writing/:journalId?',
+      name: 'edit',
+      component: () => import('../views/WritingView.vue'),
+      props: true
+    },
 
     {
       path: '/freeWriting',
