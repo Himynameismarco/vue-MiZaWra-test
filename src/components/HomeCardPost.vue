@@ -126,5 +126,6 @@ watch(() => props.entry?.body, (newBody) => {
   font-family: "Roboto Flex", Roboto Monospaced, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   padding: 24px 0 24px 0;
   margin: 0;
+  word-break: break-all;
 }
 </style>
