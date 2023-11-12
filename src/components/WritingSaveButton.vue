@@ -15,7 +15,7 @@ export default {
             title: document.getElementById("title").value,
             body: document.getElementById("narrative").value
         };
-        await apiClient.post("/journal/save", journalEntry);
+        await apiClient.post("/journal", journalEntry);
         window.location.href = '/';
     }
   }

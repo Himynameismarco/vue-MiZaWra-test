@@ -26,5 +26,8 @@ export default {
   get<T = any>(endpoint: string, params?: any): Promise<T> {
     return apiClient.get(endpoint, { params }).then((response: AxiosResponse<T>) => response.data);
   },
+  delete<T = any>(endpoint: string, params?: any): Promise<T> {
+    return apiClient.delete(endpoint, { params }).then((response: AxiosResponse<T>) => response.data);
+  },
   // ... other HTTP methods
 };
