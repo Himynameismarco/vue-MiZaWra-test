@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { themeSwitch } from '../composables/toggleTheme'
+import { themeSwitch } from '../composables/toggleTheme';
 
+function logOut() {
+    sessionStorage.removeItem('authToken');
+}
 </script>
 
 <template>
@@ -33,7 +36,7 @@ import { themeSwitch } from '../composables/toggleTheme'
         </button>
       </div>
       <RouterLink to="/settings">Settings</RouterLink>
-      <RouterLink to="/register">Log Out</RouterLink>
+      <RouterLink @click="logOut" to="/register">Log Out</RouterLink>
     </div>
 
   </nav>
