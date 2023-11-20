@@ -32,7 +32,7 @@ async function login(evt) {
   <div class="wrapper-logged-out">
     <div class="content">
       <div class="heading">
-        <h1 class="heading-logged-out">Welcome Back</h1>
+        <h1 class="heading-logged-out">Welcome </h1>
         <h3 class="heading-logged-out">Don't have an account? <RouterLink to="/register">Sign Up</RouterLink></h3>
       </div>
       <form class="forms" @submit="login">

@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('../views/ForgotPassword.vue')
     },
     {
+      path: '/setNewPassword',
+      name: 'setNewPassword',
+      component: () => import('../views/ForgotPasswordNewPassword.vue')
+    },
+    {
       path: '/selectSubmodes/:mode', // :mode dynamic segment of the rout
       name: 'selectSubmodes',
       component: () => import('../views/SelectSubmodesView.vue'),
