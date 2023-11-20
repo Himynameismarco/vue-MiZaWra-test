@@ -45,6 +45,9 @@ function register(event) {
           <label for="password">Password</label>
           <input type="password" id="password" name="password">
           <p class="sub-password">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
+          <label for="password">Password Confirmation</label>
+          <input type="password" id="passwordConfirmation" name="passwordConfirmation" v-model="passwordConfirmation">
+          <p v-if="passwordError">{{ passwordError }}</p>
           <button class="logged-out-button">Sign Up</button>
         </form>
       </div>

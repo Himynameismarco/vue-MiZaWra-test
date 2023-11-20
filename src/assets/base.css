@@ -46,7 +46,10 @@
   --font-size-label: .8rem;
 
   /* Layout Settings */
-  --nav-height: 56px;
+  --nav-height: auto;
+  --nav-horizontal-padding: 64px;
+  --nav-top-padding: 32px;
+  --nav-bottom-padding: 0px;
   --button-width-modes: 280px;
   --gap-width-modes: 24px;
   --button-width-half-modes: calc(var(--button-width-modes) / 2);
