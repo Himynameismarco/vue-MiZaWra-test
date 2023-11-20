@@ -20,6 +20,16 @@ const router = createRouter({
       component: () => import('../views/RegistrationCompletedView.vue')
     },
     {
+      path: '/register/activate',
+      name: 'registerActivate',
+      component: () => import('../views/RegistrationActivateView.vue')
+    },
+    {
+      path: '/tokenRegenerate',
+      name: 'tokenRegenerate',
+      component: () => import('../views/RegistrationTokenRegenerate.vue')
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('../views/LoginView.vue')

@@ -1,7 +1,29 @@
 <script setup lang="ts">
-import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+import NavBarLoggedOut from '../components/NavBarLoggedOut.vue';
+import apiClient from '../services/apiService';
 
+let form = ref(null);
+const router = useRouter();
+
+function register(event) {
+    event.preventDefault();
+
+    const data = {
+        firstName: form.value.firstName.value,
+        lastName: form.value.lastName.value,
+        email: form.value.email.value,
+        password: form.value.password.value
+    }
+
+    console.log(data);
+    apiClient.post("/register", data).then(() => {
+        router.push("registerComplete");
+    });
+}
 </script>
+
 <template>
   <div class="background">
   </div>
@@ -13,7 +35,7 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
           <h3 class="heading-logged-out">Already have an Account? <RouterLink to="/login">Log In</RouterLink>
           </h3>
         </div>
-        <form class="forms" action="register" method="post">
+        <form ref="form" class="forms" @submit="register" method="post">
           <label for="firstName">First name</label>
           <input type="text" id="firstName" name="firstName">
           <label for="lastName">Last name</label>
