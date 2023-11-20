@@ -87,7 +87,7 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  padding: 0 64px;
+  padding: var(--nav-top-padding) var(--nav-horizontal-padding) var(--nav-bottom-padding) var(--nav-horizontal-padding);
 }
 
 .router-link-active {
