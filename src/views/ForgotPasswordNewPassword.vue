@@ -19,7 +19,7 @@ function handleSubmit() {
     <div class="content">
       <div class="heading">
         <h1 class="heading-logged-out">Set New Password</h1>
-        <h3 class="heading-logged-out">It must be at least 8 characters. </h3>
+        <h3 class="heading-logged-out">It must be at least 8 characters long, contain at least three digits and a special character.</h3>
       </div>
       <form class="forms" @submit.prevent="handleSubmit"> <!-- TODO @submit -->
         <label for="password">Password</label>
