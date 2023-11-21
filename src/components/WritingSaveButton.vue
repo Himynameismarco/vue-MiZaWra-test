@@ -8,7 +8,7 @@ export default {
     async save(props) {
         const journalEntry = {
             id: this.journalId,
-            promptId: document.getElementById("prompt")?.getAttribute("prompt-id"),
+            promptDto: {id: document.getElementById("prompt")?.getAttribute("prompt-id")},
             title: document.getElementById("title").value,
             body: document.getElementById("narrative").value
         };

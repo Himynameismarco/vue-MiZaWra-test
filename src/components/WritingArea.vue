@@ -45,7 +45,7 @@ export default {
     const route = useRoute();
     if (route.params.journalId) {
         apiClient.get("/journal", { journalId: route.params.journalId }).then((response) => {
-            document.getElementById("prompt")?.setAttribute("prompt-id", response.promptId);
+            document.getElementById("prompt")?.setAttribute("prompt-id", response.promptDto.promptId);
             title.value = response.title;
             narrative.value = response.body;
         });
