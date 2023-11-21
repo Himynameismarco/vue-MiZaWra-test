@@ -5,9 +5,14 @@
 
     const email = ref('');
 
-    function resetPassword() {
+    async function resetPassword() {
         if(email && email !== '') {
-            apiClient.post("/forgetPassword?email=" + email.value);
+            await apiClient.post("/forgetPassword?email=" + email.value)
+            .catch((error)=>{
+                if (error.response.status == 404) {
+                    document.querySelector("#err-incorrect-pw").style.display = "block";
+                }
+            });
         }
     }
 </script>
@@ -21,15 +26,24 @@
         <h1 class="heading-logged-out">Forgot Password? </h1>
         <h3 class="heading-logged-out">Enter your email address</h3>
       </div>
-      <form class="forms">
+      <div class="forms">
         <label for="email">E-Mail</label>
         <input v-model="email" type="email" id="email" name="email">
+        <div class="sub-password">
+          <div id="err-incorrect-pw">Seems like E-Mail is wrong...</div>
+        </div>
         <button @click="resetPassword" class="logged-out-button">Reset Password</button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+
+#err-incorrect-pw {
+  color: var(--orange);
+  margin-right: 20px;
+  display: none;
+}
 
 </style>
