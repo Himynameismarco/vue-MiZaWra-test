@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ref } from "vue";
+    import ref from "vue";
     import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
     import apiClient from '../services/apiService';
 
@@ -16,6 +16,7 @@
         }
     }
 </script>
+
 <template>
   <div class="background">
   </div>
@@ -30,7 +31,7 @@
         <label for="email">E-Mail</label>
         <input v-model="email" type="email" id="email" name="email">
         <div class="sub-password">
-          <div id="err-incorrect-pw">Seems like E-Mail is wrong...</div>
+          <div id="err-incorrect">Seems like E-Mail is wrong...</div>
         </div>
         <button @click="resetPassword" class="logged-out-button">Reset Password</button>
       </div>
@@ -40,7 +41,7 @@
 
 <style scoped>
 
-#err-incorrect-pw {
+#err-incorrect {
   color: var(--orange);
   margin-right: 20px;
   display: none;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useRouter } from 'vue-router';
+import ref from "vue";
+import useRouter from 'vue-router';
 import NavBarLoggedOut from '../components/NavBarLoggedOut.vue';
 import apiClient from '../services/apiService';
-import {usePasswordValidation} from "@/composables/usePasswordValidation";
+import usePasswordValidation from "@/composables/usePasswordValidation";
 
 const { password, passwordConfirmation, passwordError, validatePassword } = usePasswordValidation();
 
@@ -40,7 +40,7 @@ function register() {
           <h3 class="heading-logged-out">Already have an Account? <RouterLink to="/login">Log In</RouterLink>
           </h3>
         </div>
-        <form ref="form" class="forms" @submit.prevent="register" method="post">
+        <form ref="form" class="forms" @submit.prevent="register">
           <label for="firstName">First name</label>
           <input type="text" id="firstName" name="firstName">
           <label for="lastName">Last name</label>
