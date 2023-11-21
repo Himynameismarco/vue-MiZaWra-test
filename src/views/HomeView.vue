@@ -53,7 +53,7 @@ const fetchData = async () => {
     countJournals.value = await homeService.getNumberOfJournals();
     client.value = response.client;
 
-    const missingEntriesCount = 24 - countJournals.value; //TODO: 24 --> 9
+    const missingEntriesCount = 9 - countJournals.value;
     if (missingEntriesCount > 0) {
       const defaultEntries = generateDefaultEntries(missingEntriesCount);
       journalEntries.value.push(...defaultEntries);

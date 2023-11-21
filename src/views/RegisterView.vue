@@ -3,11 +3,19 @@ import { ref } from "vue";
 import { useRouter } from 'vue-router';
 import NavBarLoggedOut from '../components/NavBarLoggedOut.vue';
 import apiClient from '../services/apiService';
+import {usePasswordValidation} from "@/composables/usePasswordValidation";
+
+const { password, passwordConfirmation, passwordError, validatePassword } = usePasswordValidation();
+
 
 let form = ref(null);
 const router = useRouter();
 
 function register() {
+    if (!validatePassword()) {
+      return;
+    }
+
     const data = {
         firstName: form.value.firstName.value,
         lastName: form.value.lastName.value,
@@ -40,7 +48,7 @@ function register() {
           <label for="email">E-Mail</label>
           <input type="email" id="email" name="email">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password">
+          <input type="password" id="password" name="password" v-model="password">
           <p class="sub-password">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
           <label for="password">Password Confirmation</label>
           <input type="password" id="passwordConfirmation" name="passwordConfirmation" v-model="passwordConfirmation">
