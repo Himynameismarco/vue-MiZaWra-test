@@ -7,9 +7,7 @@ import apiClient from '../services/apiService';
 let form = ref(null);
 const router = useRouter();
 
-function register(event) {
-    event.preventDefault();
-
+function register() {
     const data = {
         firstName: form.value.firstName.value,
         lastName: form.value.lastName.value,

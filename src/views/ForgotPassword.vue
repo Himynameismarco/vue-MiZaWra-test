@@ -1,6 +1,15 @@
 <script setup lang="ts">
-import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
+    import { ref } from "vue";
+    import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
+    import apiClient from '../services/apiService';
 
+    let email = ref(null);
+
+    function resetPassword() {
+        if(email && email !== '') {
+            apiClient.post("/forgetPassword?email" + email);
+        }
+    }
 </script>
 <template>
   <div class="background">
@@ -14,8 +23,8 @@ import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
       </div>
       <form class="forms" action="register" method="post">
         <label for="email">E-Mail</label>
-        <input type="email" id="email" name="email">
-        <button class="logged-out-button">Reset Password</button>
+        <input ref="email" type="email" id="email" name="email">
+        <button @click="resetPassword" class="logged-out-button">Reset Password</button>
       </form>
     </div>
   </div>
