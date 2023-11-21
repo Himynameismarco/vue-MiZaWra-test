@@ -3,11 +3,11 @@
     import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
     import apiClient from '../services/apiService';
 
-    let email = ref(null);
+    const email = ref('');
 
     function resetPassword() {
         if(email && email !== '') {
-            apiClient.post("/forgetPassword?email" + email);
+            apiClient.post("/forgetPassword?email=" + email.value);
         }
     }
 </script>
@@ -21,9 +21,9 @@
         <h1 class="heading-logged-out">Forgot Password? </h1>
         <h3 class="heading-logged-out">Enter your email address</h3>
       </div>
-      <form class="forms" action="register" method="post">
+      <form class="forms">
         <label for="email">E-Mail</label>
-        <input ref="email" type="email" id="email" name="email">
+        <input v-model="email" type="email" id="email" name="email">
         <button @click="resetPassword" class="logged-out-button">Reset Password</button>
       </form>
     </div>
