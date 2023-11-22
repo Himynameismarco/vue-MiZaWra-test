@@ -69,9 +69,14 @@ const router = createRouter({
       component: () => import('../views/FreeWritingView.vue')
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: () => import('../views/SettingsView.vue')
+      path: '/personalSettings',
+      name: 'personalSettings',
+      component: () => import('../views/PersonalSettingsView.vue')
+    },
+    {
+      path: '/appSettings',
+      name: 'appSettings',
+      component: () => import('../views/AppSettingsView.vue')
     }
   ]
 })

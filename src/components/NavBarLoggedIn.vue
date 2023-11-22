@@ -35,7 +35,7 @@ function logOut() {
           </svg>
         </button>
       </div>
-      <RouterLink to="/settings">Settings</RouterLink>
+      <RouterLink to="/personalSettings">Settings</RouterLink>
       <RouterLink @click="logOut" to="/register">Log Out</RouterLink>
     </div>
 
