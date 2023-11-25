@@ -68,6 +68,7 @@ input {
   border-color: var(--dark-gray);
   border-width: 1px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: var(--color-text);
 }
 
 /* this is why navbar items used to be green */

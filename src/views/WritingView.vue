@@ -2,9 +2,9 @@
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
-import useRoute from 'vue-router';
+import { useRoute } from 'vue-router';
 import apiClient from '../services/apiService';
-import ref from 'vue';
+import { ref } from 'vue';
 
 const route = useRoute();
 const title = ref(route.params.title);
