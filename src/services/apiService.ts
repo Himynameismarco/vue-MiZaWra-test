@@ -36,6 +36,9 @@ export default {
   post<T = any>(endpoint: string, body: any): Promise<T> {
     return apiClient.post(endpoint, body).then((response: AxiosResponse<T>) => response.data);
   },
+  put<T = any>(endpoint: string, body: any): Promise<T> {
+    return apiClient.put(endpoint, body).then((response: AxiosResponse<T>) => response.data);
+  },
   get<T = any>(endpoint: string, params?: any): Promise<T> {
     return apiClient.get(endpoint, { params }).then((response: AxiosResponse<T>) => response.data);
   },
