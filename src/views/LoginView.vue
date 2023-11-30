@@ -26,8 +26,7 @@ async function login() {
 
 </script>
 <template>
-  <div class="background">
-  </div>
+  <div class="logged-out-background">
   <NavBarLoggedOut />
   <div class="wrapper-logged-out">
     <div class="content">
@@ -47,6 +46,7 @@ async function login() {
         <button class="logged-out-button">Login</button>
       </form>
     </div>
+  </div>
   </div>
 </template>
 
