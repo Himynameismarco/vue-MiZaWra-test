@@ -1,6 +1,6 @@
 // HomeCardPost.vue
 <script setup lang="ts">
-import { ref, watch, defineProps } from 'vue';
+import { ref, watch, defineProps, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import apiClient from '../services/apiService';
 
@@ -27,6 +27,23 @@ function deleteJournal(event) {
 
 const preview = ref<string>('');
 
+const modeColor = computed(() => {
+  const mode = props.entry?.promptDto?.mode;
+  switch (mode) {
+    case 'POSITIVE':
+    case 'NEUTRAL':
+    case 'PHILOSOPHICAL':
+    case 'NEGATIVE':
+      return 'var(--mode-green)';
+    case 'WORD':
+    case 'SENTENCE':
+    case 'PARAGRAPH':
+      return 'var(--mode-salmon)';
+    default:
+      return 'var(--mode-blue)';
+  }
+});
+
 const formatBody = (body: string) => {
   // Safeguard against undefined values
   if (!body) return '';
@@ -51,11 +68,11 @@ watch(() => props.entry?.body, (newBody) => {
 </script>
 
 <template>
-  <div @click="editJournal" class="item">
+  <div @click="editJournal" class="item" :data-mode-color="modeColor">
     <div class="info">
       <h2>{{ entry.title }}</h2>
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle class="prompted" cx="9.5" cy="9.5" r="9.5" fill="none"/>
+        <circle class="prompted" cx="9.5" cy="9.5" r="9.5" />
       </svg>
     </div>
     <p class="preview">{{preview}}</p>
@@ -85,6 +102,19 @@ watch(() => props.entry?.body, (newBody) => {
   width: var(--card-width);
   cursor: pointer;
 }
+
+.item[data-mode-color^='var(--mode-green)']:hover .prompted {
+  fill: var(--mode-green);
+}
+
+.item[data-mode-color^='var(--mode-salmon)']:hover .prompted {
+  fill: var(--mode-salmon);
+}
+
+.item[data-mode-color^='var(--mode-blue)']:hover .prompted {
+  fill: var(--mode-blue);
+}
+
 .info:last-of-type {
   margin-top: auto;  /* Push the last .info block to the bottom */
 }
@@ -98,19 +128,6 @@ watch(() => props.entry?.body, (newBody) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* TODO – via JS */
-.item:hover .free {
-  fill: var(--mode-blue);
-}
-
-.item:hover .prompted {
-  fill: var(--mode-green);
-}
-
-.item:hover .story {
-  fill: var(--mode-salmon);
 }
 
 .item svg {
