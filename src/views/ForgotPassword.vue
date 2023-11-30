@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import ref from "vue";
+    import { ref } from "vue";
     import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
     import apiClient from '../services/apiService';
 
