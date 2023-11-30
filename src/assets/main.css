@@ -157,14 +157,10 @@ button {
   grid-template-rows: 229px auto; /* 6 */
 }
 
-.background {
-  left: -949px;
-  top: calc(var(--nav-height) + 446px);
-  height: 1684px;
-  width: 1517px;
-  position: absolute;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
+.logged-out-background {
+  background: radial-gradient(50% 50% at 10% 80%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
 }
+
 
 .wrapper-logged-out .content {
   position: relative;
