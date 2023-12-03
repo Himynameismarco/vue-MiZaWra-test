@@ -37,12 +37,22 @@ const router = createRouter({
     {
       path: '/forgotPassword',
       name: 'forgotPassword',
-      component: () => import('../views/ForgotPassword.vue')
+      component: () => import('../views/ForgotPasswordView.vue')
+    },
+    {
+      path: '/forgotPassword/emailSent',
+      name: 'forgotPasswordEmailSent',
+      component: () => import('../views/ForgotPasswordEmailSentView.vue')
     },
     {
       path: '/setNewPassword',
       name: 'setNewPassword',
-      component: () => import('../views/ForgotPasswordNewPassword.vue')
+      component: () => import('../views/ForgotPasswordNewPasswordView.vue')
+    },
+    {
+      path: '/forgotPassword/success',
+      name: 'forgotPasswordSuccess',
+      component: () => import('../views/ForgotPasswordSuccessView.vue')
     },
     {
       path: '/selectSubmodes/:mode', // :mode dynamic segment of the rout

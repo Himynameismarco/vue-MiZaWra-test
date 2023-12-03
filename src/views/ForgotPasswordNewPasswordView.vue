@@ -6,12 +6,15 @@ import apiClient from '../services/apiService';
 
 const { password, passwordConfirmation, passwordError, validatePassword } = usePasswordValidation();
 const route = useRoute();
+const router = useRouter();
 
 function handleSubmit() {
     if (validatePassword()) {
         apiClient.post("/savePassword", {
             password: password.value,
             tokenId: route.query.token
+        }).then(()=>{
+            router.push("/forgotPassword/success");
         });
     }
 }
@@ -26,7 +29,7 @@ function handleSubmit() {
         <h1 class="heading-logged-out">Set New Password</h1>
         <h3 class="heading-logged-out">It must be at least 8 characters long, contain at least three digits and a special character.</h3>
       </div>
-      <form class="forms" @submit.prevent="handleSubmit"> <!-- TODO @submit -->
+      <form class="forms" @submit.prevent="handleSubmit">
         <label for="password">Password</label>
         <input type="password" id="password" name="password" v-model="password">
         <label for="password">Password Confirmation</label>

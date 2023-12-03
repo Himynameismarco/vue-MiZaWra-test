@@ -1,14 +1,18 @@
 <script setup lang="ts">
     import { ref } from "vue";
+    import { useRouter } from 'vue-router';
     import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
     import apiClient from '../services/apiService';
 
     const email = ref('');
+    const router = useRouter();
 
     async function resetPassword() {
         if(email && email !== '') {
             await apiClient.post("/forgetPassword?email=" + email.value)
-            .catch((error)=>{
+            .then(() => {
+                router.push("/forgotPassword/emailSent")
+            }).catch((error) => {
                 if (error.response.status == 404) {
                     document.querySelector("#err-incorrect-pw").style.display = "block";
                 }
