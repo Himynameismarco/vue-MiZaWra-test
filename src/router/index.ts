@@ -12,22 +12,22 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/RegisterView.vue')
+      component: () => import('../views/register/RegisterView.vue')
     },
     {
       path: '/registerComplete',
       name: 'registerComplete',
-      component: () => import('../views/RegistrationCompletedView.vue')
+      component: () => import('../views/register/RegistrationCompletedView.vue')
     },
     {
       path: '/register/activate',
       name: 'registerActivate',
-      component: () => import('../views/RegistrationActivateView.vue')
+      component: () => import('../views/register/RegistrationActivateView.vue')
     },
     {
       path: '/tokenRegenerate',
       name: 'tokenRegenerate',
-      component: () => import('../views/RegistrationTokenRegenerate.vue')
+      component: () => import('../views/register/RegistrationTokenRegenerate.vue')
     },
     {
       path: '/login',
@@ -37,22 +37,22 @@ const router = createRouter({
     {
       path: '/forgotPassword',
       name: 'forgotPassword',
-      component: () => import('../views/ForgotPasswordView.vue')
+      component: () => import('../views/forgotPassword/ForgotPasswordView.vue')
     },
     {
       path: '/forgotPassword/emailSent',
       name: 'forgotPasswordEmailSent',
-      component: () => import('../views/ForgotPasswordEmailSentView.vue')
+      component: () => import('../views/forgotPassword/ForgotPasswordEmailSentView.vue')
     },
     {
       path: '/setNewPassword',
       name: 'setNewPassword',
-      component: () => import('../views/ForgotPasswordNewPasswordView.vue')
+      component: () => import('../views/forgotPassword/ForgotPasswordNewPasswordView.vue')
     },
     {
       path: '/forgotPassword/success',
       name: 'forgotPasswordSuccess',
-      component: () => import('../views/ForgotPasswordSuccessView.vue')
+      component: () => import('../views/forgotPassword/ForgotPasswordSuccessView.vue')
     },
     {
       path: '/selectSubmodes/:mode', // :mode dynamic segment of the rout

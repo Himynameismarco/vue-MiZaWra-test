@@ -1,8 +1,8 @@
 <script setup lang="ts">
     import { ref } from "vue";
     import { useRouter } from 'vue-router';
-    import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
-    import apiClient from '../services/apiService';
+    import NavBarLoggedOut from '@/components/NavBarLoggedOut.vue'
+    import apiClient from '@/services/apiService';
 
     const email = ref('');
     const router = useRouter();

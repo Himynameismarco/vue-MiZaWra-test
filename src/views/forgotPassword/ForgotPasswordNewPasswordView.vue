@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
-import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
-import { usePasswordValidation } from '../composables/usePasswordValidation';
-import apiClient from '../services/apiService';
+import NavBarLoggedOut from '@/components/NavBarLoggedOut.vue'
+import { usePasswordValidation } from '@/composables/usePasswordValidation';
+import apiClient from '@/services/apiService';
 
 const { password, passwordConfirmation, passwordError, validatePassword } = usePasswordValidation();
 const route = useRoute();

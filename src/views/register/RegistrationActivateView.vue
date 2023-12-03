@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { useRoute, useRouter } from 'vue-router';
-    import NavBarLoggedOut from '../components/NavBarLoggedOut.vue'
-    import apiClient from '../services/apiService';
+    import NavBarLoggedOut from '@/components/NavBarLoggedOut.vue'
+    import apiClient from '@/services/apiService';
 
     const route = useRoute();
     const router = useRouter();
