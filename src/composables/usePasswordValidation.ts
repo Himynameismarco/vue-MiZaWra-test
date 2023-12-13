@@ -10,6 +10,10 @@ export function usePasswordValidation() {
     const digitCheck = (password.value.match(/\d/g) || []).length >= 3;
     const specialCharCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password.value);
 
+    console.log("Length >= 8: " + lengthCheck);
+    console.log("More than 3 digits: " + digitCheck);
+    console.log("At leas one special character: " + specialCharCheck);
+
     return lengthCheck && digitCheck && specialCharCheck;
   });
 

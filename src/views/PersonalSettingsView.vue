@@ -3,41 +3,34 @@ import { ref, onMounted } from "vue";
 import NavBarLoggedIn from "@/components/NavBarLoggedIn.vue";
 import '@/assets/settings.css';
 import apiClient from '../services/apiService';
+import { usePasswordValidation } from "@/composables/usePasswordValidation";
+
+const { password, passwordConfirmation, passwordError, validatePassword } = usePasswordValidation();
 
 let firstname = ref('');
 let lastname = ref('');
 let email = ref('');
-
 let oldPassword = ref('');
 let newPassword = ref('');
 let confirmNewPassword = ref('');
 
-function passwordsMatch(): boolean {
-  return newPassword.value === confirmNewPassword.value;
-}
 
 function updateSettings() {
+    password.value = newPassword.value;
+    passwordConfirmation.value = confirmNewPassword.value;
+    oldPassword.value = oldPassword.value;
+
+    if (!validatePassword()) {
+      return;
+    }
+
     let data = {
-        firstName: firstname.value,
-        lastName: lastname.value
+      firstName: firstname.value,
+      lastName: lastname.value,
+      password: confirmNewPassword.value
     };
 
-    if (!passwordsMatch()) {
-        alert('New password and confirmation do not match!');
-        return;
-    }
-
-    if (!oldPassword.value && (newPassword.value || confirmNewPassword.value)) {
-        alert('To change password you should pass old one.');
-        return;
-    }
-
-    if (confirmNewPassword.value) {
-        data.password = confirmNewPassword.value
-    }
-
-    //todo add validation of new password here
-
+    console.log('Sending data to API:', data);
     apiClient.put("/client", data)
     .then(() => {
         console.log('success');
@@ -90,6 +83,7 @@ onMounted(() => {
         <input type="password" id="n-password" name="n-password" v-model="newPassword">
         <label for="n-password-c">Confirm New Password</label>
         <input type="password" id="n-password-c" name="n-password-c" v-model="confirmNewPassword">
+        <p class="password-error" v-if="passwordError">{{ passwordError }}</p>
       </div>
     </div>
     <div class="buttons">
