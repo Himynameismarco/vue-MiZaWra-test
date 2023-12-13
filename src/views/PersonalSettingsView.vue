@@ -19,6 +19,7 @@ function updateSettings() {
     password.value = newPassword.value;
     passwordConfirmation.value = confirmNewPassword.value;
     oldPassword.value = oldPassword.value;
+    console.log("old Password: " + oldPassword.value);
 
     if (!validatePassword()) {
       return;
@@ -27,6 +28,7 @@ function updateSettings() {
     let data = {
       firstName: firstname.value,
       lastName: lastname.value,
+      oldPassword: oldPassword.value,
       password: confirmNewPassword.value
     };
 
