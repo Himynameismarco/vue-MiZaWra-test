@@ -7,15 +7,9 @@ import apiClient from '../services/apiService';
 import {ref, computed, createCommentVNode, onMounted, defineProps} from 'vue';
 
 const route = useRoute();
-onMounted(() => {
-  console.log("promptId: " + route.params.id);
-  console.log("submode: " + route.params.submode);
-});
-const submode = ref(route.params.submode);
-const hasSubmode = computed(() => !!route.params.submode); // Check if submode exists
-const title = computed(() => getFullSubmodeName(submode.value));
-let modePrompt = ref('What can you hope for?');
-let promptId = ref(null);
+const submode = ref(null);
+const modePrompt = ref('What can you hope for?');
+const promptId = ref(null);
 
 const submodeFullName = {
   'POSITIVE': 'Positive Prompt',
@@ -32,22 +26,38 @@ function getFullSubmodeName(submodeTitle) {
   return submodeFullName[submodeTitle] || 'Unknown Submode';
 }
 
-if (hasSubmode.value) {
-    apiClient.get("/prompt/random", { mode: route.params.submode }).then((response) => {
-        promptId.value = response.id;
-        modePrompt.value = response.prompt;
+const hasSubmode = computed(() => !!submode.value);
+const fullSubmode = computed(() => getFullSubmodeName(submode.value));
+const narrative = ref(null);
+const title = ref(null);
+
+onMounted(async () => {
+
+  const route = useRoute();
+  if (route.params.journalId) {
+    apiClient.get("/journal", { journalId: route.params.journalId }).then((response) => {
+      //document.getElementById("prompt")?.setAttribute("prompt-id", response.promptDto.promptId);
+      console.log("response: ", response)
+      fullSubmode.value = response.promptDto.mode;
+      title.value = response.title;
+      narrative.value = response.body;
+      submode.value = response.promptDto.mode;
+      modePrompt.value = response.promptDto.prompt;
+      console.log("submode.value", submode.value);
     });
-}
+    console.log("fullSubmodeName:...: " + fullSubmode.value);
+  }
+});
 </script>
 
 <template>
   <NavBarLoggedIn/>
   <div class="container" id="container">
-    <div v-if="hasSubmode" class="prompt" id="prompt" :prompt-id="promptId.value">
-      <p class="submode-label">{{title}}</p>
+    <div v-if="hasSubmode" class="prompt" id="prompt" :prompt-id="promptId">
+      <p class="submode-label">{{ fullSubmode }}</p>
       <h2>{{modePrompt}}</h2>
     </div>
-    <WritingArea/>
+    <WritingArea :narrative="narrative" :title="title" @update:title="title = $event" @update:narrative="narrative = $event"/>
     <WritingSaveButton :journalId="route.params.journalId"/>
   </div>
 </template>
