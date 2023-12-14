@@ -10,10 +10,14 @@ const props = defineProps({
 });
 
 function editJournal(event) {
-    router.push({
+  console.log("props.entry: " + props.entry.id);
+  console.log("Submode to pass:", props.entry?.promptDto?.mode);
+  router.push({
         name: "edit",
         params: {
-            journalId: props.entry.id
+            journalId: props.entry.id,
+            submode: props.entry.promptDto.mode,
+            prompt: props.entry.promptDto.prompt
         }
     })
 }
@@ -28,8 +32,8 @@ function deleteJournal(event) {
 const preview = ref<string>('');
 
 const modeColor = computed(() => {
-  const mode = props.entry?.promptDto?.mode;
-  switch (mode) {
+  const submode = props.entry?.promptDto?.mode;
+  switch (submode) {
     case 'POSITIVE':
     case 'NEUTRAL':
     case 'PHILOSOPHICAL':
