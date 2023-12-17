@@ -4,12 +4,12 @@ import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
 import { useRoute } from 'vue-router';
 import apiClient from '../services/apiService';
-import {ref, computed, createCommentVNode, onMounted, defineProps} from 'vue';
+import {ref, reactive, computed, createCommentVNode, onMounted, defineProps} from 'vue';
 
 const route = useRoute();
 const submode = ref(null);
 const modePrompt = ref('What can you hope for?');
-let promptId = ref(null);
+const promptId = reactive({ value: null });
 
 const submodeFullName = {
   'POSITIVE': 'Positive Prompt',
@@ -31,32 +31,25 @@ const fullSubmode = computed(() => getFullSubmodeName(submode.value));
 const narrative = ref(null);
 const title = ref(null);
 
-onMounted(async () => {
-  console.log("onMounted")
-
-  const route = useRoute();
-  console.log("route: ", route.params)
+async function fetchData() {
   if (route.params.journalId) {
-    apiClient.get("/journal", { journalId: route.params.journalId }).then((response) => {
-      //document.getElementById("prompt")?.setAttribute("prompt-id", response.promptDto.promptId);
-      console.log("response: ", response)
-      fullSubmode.value = response.promptDto.mode;
-      title.value = response.title;
-      narrative.value = response.body;
-      submode.value = response.promptDto.mode;
-      modePrompt.value = response.promptDto.prompt;
-      console.log("submode.value", submode.value);
-    });
-    console.log("fullSubmodeName:...: " + fullSubmode.value);
+    const response = await apiClient.get("/journal", { journalId: route.params.journalId });
+    title.value = response.title;
+    narrative.value = response.body;
+    submode.value = response.promptDto.mode;
+    modePrompt.value = response.promptDto.prompt;
   } else if (route.params.submode) {
-    apiClient.get("/prompt/random", { mode: route.params.submode }).then((response) => {
-      console.log("response: ", response)
-      promptId = response.id;
-      modePrompt.value = response.prompt;
-      submode.value = response.mode;
-    });
+    const response = await apiClient.get("/prompt/random", { mode: route.params.submode });
+    promptId.value = response.id;
+    modePrompt.value = response.prompt;
+    submode.value = response.mode;
   }
+}
+
+onMounted(() => {
+  fetchData();
 });
+
 </script>
 
 <template>
