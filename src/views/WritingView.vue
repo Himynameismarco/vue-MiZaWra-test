@@ -9,7 +9,7 @@ import {ref, computed, createCommentVNode, onMounted, defineProps} from 'vue';
 const route = useRoute();
 const submode = ref(null);
 const modePrompt = ref('What can you hope for?');
-const promptId = ref(null);
+let promptId = ref(null);
 
 const submodeFullName = {
   'POSITIVE': 'Positive Prompt',
@@ -32,8 +32,10 @@ const narrative = ref(null);
 const title = ref(null);
 
 onMounted(async () => {
+  console.log("onMounted")
 
   const route = useRoute();
+  console.log("route: ", route.params)
   if (route.params.journalId) {
     apiClient.get("/journal", { journalId: route.params.journalId }).then((response) => {
       //document.getElementById("prompt")?.setAttribute("prompt-id", response.promptDto.promptId);
@@ -46,6 +48,13 @@ onMounted(async () => {
       console.log("submode.value", submode.value);
     });
     console.log("fullSubmodeName:...: " + fullSubmode.value);
+  } else if (route.params.submode) {
+    apiClient.get("/prompt/random", { mode: route.params.submode }).then((response) => {
+      console.log("response: ", response)
+      promptId = response.id;
+      modePrompt.value = response.prompt;
+      submode.value = response.mode;
+    });
   }
 });
 </script>
