@@ -60,7 +60,10 @@ onMounted(() => {
       <h2>{{modePrompt}}</h2>
     </div>
     <WritingArea :narrative="narrative" :title="title" @update:title="title = $event" @update:narrative="narrative = $event"/>
-    <WritingSaveButton :journalId="route.params.journalId"/>
+    <WritingSaveButton :title="title"
+                       :narrative="narrative"
+                       :promptId="promptId.value"
+                       :journalId="route.params.journalId"/>
   </div>
 </template>
 

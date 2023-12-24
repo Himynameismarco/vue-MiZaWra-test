@@ -1,20 +1,26 @@
 <script lang="ts">
 import apiClient from '../services/apiService';
 
+
 export default {
   name: "WritingSaveButton.vue",
-  props: ['journalId'],
+  props: {
+    title: String,
+    narrative: String,
+    promptId: [String, Number],
+    journalId: [String, Number]
+  },
   methods: {
-    async save(props) {
-        const journalEntry = {
-            id: this.journalId,
-            promptDto: {id: document.getElementById("prompt")?.getAttribute("prompt-id")},
-            title: document.getElementById("title").value,
-            body: document.getElementById("narrative").value
-        };
-        console.log(journalEntry);
-        await apiClient.post("/journal", journalEntry);
-        window.location.href = '/';
+    async save() {
+      const journalEntry = {
+        id: this.journalId,
+        promptDto: { id: this.promptId },
+        title: this.title,
+        body: this.narrative
+      };
+      console.log(journalEntry);
+      await apiClient.post("/journal", journalEntry);
+      window.location.href = '/';
     }
   }
 }
