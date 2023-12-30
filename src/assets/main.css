@@ -115,28 +115,33 @@ nav .menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  column-gap: 30px;
-}
-
-nav .menu svg {
-  margin-top: 5px;
+  height: 20px;
+  column-gap: 36px;
 }
 
 nav .menu .icons {
   display: flex;
-  column-gap: 25px;
+  column-gap: 20px;
   align-items: center;
 }
 
-nav .menu .icons button {
+nav .menu .icons a, nav .menu .icons button {
+  margin: 0;
   padding: 0;
 }
 
+nav .menu .icons a {
+  display: flex;
+  align-items: center; /* Center align SVG and text within RouterLink */
+}
+
+nav .menu .icons button {
+  display: flex;
+  align-items: center; /* Center align SVG within button */
+}
 
 nav .logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  height: 20px;
   margin: 0;
 }
 
