@@ -18,13 +18,32 @@ apiClient.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
+apiClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response && error.response.status === 401) {
+        sessionStorage.removeItem('authToken');
+        window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
 
 export default {
   post<T = any>(endpoint: string, body: any): Promise<T> {
     return apiClient.post(endpoint, body).then((response: AxiosResponse<T>) => response.data);
   },
+  put<T = any>(endpoint: string, body: any): Promise<T> {
+    return apiClient.put(endpoint, body).then((response: AxiosResponse<T>) => response.data);
+  },
   get<T = any>(endpoint: string, params?: any): Promise<T> {
     return apiClient.get(endpoint, { params }).then((response: AxiosResponse<T>) => response.data);
+  },
+  delete<T = any>(endpoint: string, params?: any): Promise<T> {
+    return apiClient.delete(endpoint, { params }).then((response: AxiosResponse<T>) => response.data);
   },
   // ... other HTTP methods
 };

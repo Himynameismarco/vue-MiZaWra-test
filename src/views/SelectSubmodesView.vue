@@ -1,6 +1,99 @@
 <script setup lang="ts">
+import { ref, defineProps } from 'vue';
 import NavBarLoggedIn from '../components/NavBarLoggedIn.vue'
 import SubmodeCard from '../components/SubmodeCard.vue'
+
+const { mode } = defineProps(['mode']);
+
+const writingPage = "writing";
+
+console.log("Mode: ", mode);
+
+let modeDescription;
+let submodes;
+const submodesPrompted = [
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "PHILOSOPHICAL",
+        title: "Philosophical Prompt"
+      }
+    },
+    description: "Want to try to answer the big questions today? Go for this sub-mode!"
+  },
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "POSITIVE",
+        title: "Positive Prompt"
+      }
+    },
+    description: "Feel like you need something uplifting today? Check out this sub-mode."
+  },
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "NEUTRAL",
+        title: "Neutral Prompt"
+      }
+    },
+    description: "Ready for a few questions you should ask yourself and reflect on? Ok, go!"
+  },
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "NEGATIVE",
+        title: "Negative Prompt"
+      }
+    },
+    description: "Feel like tackling a difficult personal moment? This sub-mode is for you."
+  }
+];
+
+const submodesStory = [
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "WORD",
+        title: "One Word Prompt"
+      }
+    },
+    description: "You guessed it. You get a word, you write a story!"
+  },
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "SENTENCE",
+        title: "Group of Words Prompt"
+      }
+    },
+    description: "You get a list of words and each word has to appear in your story."
+  },
+  {
+    to: {
+      name: writingPage,
+      params: {
+        submode: "PARAGRAPH",
+        title: "Paragraph Prompt"
+      }
+    },
+    description: "You get the start of a story: Feel free to change it or just continue."
+  }
+];
+
+if (mode === "Story") {
+  modeDescription = "Each sub-mode will give you a prompt to write a brand new story."
+  submodes = submodesStory;
+} else {
+  modeDescription = "Each sub-mode will give you a question to answer in your journal entry."
+  submodes = submodesPrompted;
+}
 
 function deleteBackground() {
   document.documentElement.style.setProperty('background', 'var(--color-background)');
@@ -12,29 +105,16 @@ function deleteBackground() {
   <div class="selectModes">
     <div class="instructions">
       <h1>What Do You Want to Write About?</h1>
-      <h3>Each sub-mode will give you a question to answer in your journal entry.</h3>
+      <h3>{{modeDescription}}</h3>
     </div>
     <div class="submode-picker">
-      <SubmodeCard @click="deleteBackground"/>
-      <RouterLink class="no-background" to="/selectSubmodes">
-        <div class="submode">
-          <h2 class="heading">positive prompt</h2>
-          <p>Feel like you need something uplifting today?
-            Check out this sub-mode.</p>
-        </div>
-      </RouterLink>
-      <div class="submode">
-        <RouterLink class="no-background" to="/selectSubmodes">
-          <h2 class="heading">neutral prompt</h2>
-          <p>Feel like you need something uplifting today?
-            Check out this sub-mode.</p>
-        </RouterLink>
-      </div>
-      <div class="submode">
-        <RouterLink class="no-background" to="/selectSubmodes">
-          <h2 class="heading">negative prompt</h2>
-          <p>Feel like tackling a  difficult personal moment today? This sub-mode could be right for you.</p>
-        </RouterLink>
+      <div class="submode-picker">
+        <SubmodeCard
+            v-for="(submode, index) in submodes"
+            :key="index"
+            :submode="submode"
+            @click="deleteBackground"
+        />
       </div>
     </div>
   </div>

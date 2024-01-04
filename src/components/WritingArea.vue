@@ -1,7 +1,12 @@
 <script lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, defineProps } from 'vue';
+
 export default {
   name: "WritingArea.vue",
+  props: {
+    title: String,
+    narrative: String
+  },
   methods: {
     hidePrompt(event) {
       let prompt = document.getElementById("prompt");
@@ -17,7 +22,7 @@ export default {
       }
     }
   },
-  setup() {
+  setup(props) {
     let hover = ref(false);
     function changeBoxshadow() {
       let prompt = document.getElementById("prompt");
@@ -35,16 +40,15 @@ export default {
     function toggleTime() {
       showTime.value = !showTime.value;
     }
-
     return { hover, changeBoxshadow, toggleTime, showTime };
-  },
+  }
 }
 </script>
 
 <template>
   <div class="writing-container">
     <div class="writing-header">
-      <textarea class="items">Give Your Text a Title</textarea>
+      <textarea :value="title" @input="$emit('update:title', $event.target.value)" id="title" class="items" placeholder="Give Your Text a Title"></textarea>
     </div>
     <div class="icons">
       <svg class="icon" @mouseenter="hover = true" @mouseleave="hover = false" @click="hidePrompt($event);" width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +68,7 @@ export default {
       <div v-if="showTime" class="time">15:00</div>
     </div>
     <div class="writing-area">
-      <textarea id="narrative" placeholder="Start typing here ..."></textarea>
+      <textarea :value="narrative" @input="$emit('update:narrative', $event.target.value)" id="narrative" placeholder="Start typing here ..."></textarea>
     </div>
     <div class="writing-footer">
         <h3 class="items">04/07/23</h3>

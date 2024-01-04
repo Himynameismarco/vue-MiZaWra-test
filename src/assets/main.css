@@ -2,7 +2,6 @@
 
 #app {
   margin: 0 auto;
-  padding: 0 2em;
 }
 
 @media (max-width: 1200px) {
@@ -69,6 +68,7 @@ input {
   border-color: var(--dark-gray);
   border-width: 1px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: var(--color-text);
 }
 
 /* this is why navbar items used to be green */
@@ -88,6 +88,7 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
+  padding: var(--nav-top-padding) var(--nav-horizontal-padding) var(--nav-bottom-padding) var(--nav-horizontal-padding);
 }
 
 .router-link-active {
@@ -114,28 +115,33 @@ nav .menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  column-gap: 30px;
-}
-
-nav .menu svg {
-  margin-top: 5px;
+  height: 20px;
+  column-gap: 36px;
 }
 
 nav .menu .icons {
   display: flex;
-  column-gap: 25px;
+  column-gap: 20px;
   align-items: center;
 }
 
-nav .menu .icons button {
+nav .menu .icons a, nav .menu .icons button {
+  margin: 0;
   padding: 0;
 }
 
+nav .menu .icons a {
+  display: flex;
+  align-items: center; /* Center align SVG and text within RouterLink */
+}
+
+nav .menu .icons button {
+  display: flex;
+  align-items: center; /* Center align SVG within button */
+}
 
 nav .logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  height: 20px;
   margin: 0;
 }
 
@@ -156,14 +162,10 @@ button {
   grid-template-rows: 229px auto; /* 6 */
 }
 
-.background {
-  left: -949px;
-  top: calc(var(--nav-height) + 446px);
-  height: 1684px;
-  width: 1517px;
-  position: absolute;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
+.logged-out-background {
+  background: radial-gradient(50% 50% at 10% 80%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
 }
+
 
 .wrapper-logged-out .content {
   position: relative;
