@@ -12,7 +12,7 @@ function updateSettings() {
     let data = {
         lightTheme: document.querySelector('.theme-button-activated').value,
         locale: locale.value.value,
-        timer: 900000 //todo add dynamic value
+        timer: 900 //todo add dynamic value
     };
 
     apiClient.put("/client/settings", data).then(() => {
@@ -23,7 +23,7 @@ function updateSettings() {
             sessionStorage.removeItem('lightTheme');
         }
         sessionStorage.setItem('locale', locale.value.value);
-        sessionStorage.setItem('timer', 900000); //todo add dynamic value
+        sessionStorage.setItem('timer', 900); //todo add dynamic value
         console.log('success');
     });
 }
