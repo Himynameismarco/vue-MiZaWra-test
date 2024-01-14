@@ -19,7 +19,9 @@ export default {
         body: this.narrative
       };
       console.log(journalEntry);
-      await apiClient.post("/journal", journalEntry);
+      if (journalEntry.body) {
+        await apiClient.post("/journal", journalEntry);
+      }
       window.location.href = '/';
     }
   }
