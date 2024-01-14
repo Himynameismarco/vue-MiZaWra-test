@@ -40,7 +40,11 @@ export default {
     return { hover, changeBoxshadow, timer, toggleTimer };
   },
   mounted() {
-    startTimer(sessionStorage.getItem('timer'), this.timer, null);
+    if (sessionStorage.getItem('timer') > 0) {
+        startTimer(sessionStorage.getItem('timer'), this.timer, null);
+    } else {
+        this.timer.parentNode.style.display = 'none';
+    }
   }
 }
 </script>
