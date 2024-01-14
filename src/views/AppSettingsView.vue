@@ -85,10 +85,13 @@ onMounted(() => {
         </select>
 
       </div>
-      <div class="timer">
+      <div class="timer-container">
         <h3>Timer</h3>
         <p>How long do you want your typical writing session to be? We love to write within 15 minutes. Select your own default timer.</p>
-        <input ref="timer" type="time" id="timer" placeholder="00:15" class="theme-button">
+        <div class="timer">
+          <input ref="timer" type="number" min="0" max="60" id="timer" placeholder="--" class="theme-button">
+          <p>minutes</p>
+        </div>
 
       </div>
 
