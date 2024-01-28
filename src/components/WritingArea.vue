@@ -6,6 +6,7 @@ export default {
   props: {
     title: String,
     narrative: String,
+    initialPrompt: String,
     submode: String
   },
   methods: {
