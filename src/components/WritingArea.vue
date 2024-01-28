@@ -1,11 +1,12 @@
 <script lang="ts">
-import { ref, watch, defineProps } from 'vue';
+import { ref, watch, defineProps, computed } from 'vue';
 
 export default {
   name: "WritingArea.vue",
   props: {
     title: String,
-    narrative: String
+    narrative: String,
+    initialPrompt: String
   },
   methods: {
     hidePrompt(event) {
@@ -40,7 +41,11 @@ export default {
     function toggleTime() {
       showTime.value = !showTime.value;
     }
-    return { hover, changeBoxshadow, toggleTime, showTime };
+    const initialText = computed(() => {
+      return props.narrative || props.initialPrompt || '';
+    });
+
+    return { hover, changeBoxshadow, toggleTime, showTime, initialText };
   }
 }
 </script>
@@ -68,7 +73,7 @@ export default {
       <div v-if="showTime" class="time">15:00</div>
     </div>
     <div class="writing-area">
-      <textarea :value="narrative" @input="$emit('update:narrative', $event.target.value)" id="narrative" placeholder="Start typing here ..."></textarea>
+      <textarea :value="initialText" @input="$emit('update:narrative', $event.target.value)" id="narrative" placeholder="Start typing here ..."></textarea>
     </div>
     <div class="writing-footer">
         <h3 class="items">04/07/23</h3>

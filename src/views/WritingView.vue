@@ -10,6 +10,7 @@ const route = useRoute();
 const submode = ref(null);
 const modePrompt = ref('What can you hope for?');
 const promptId = reactive({ value: null });
+const customParagraphPrompt = "Continue to write this story, edit it if you like and let your imagination run wild.";
 
 const submodeFullName = {
   'POSITIVE': 'Positive Prompt',
@@ -44,10 +45,33 @@ async function fetchData() {
     modePrompt.value = response.prompt;
     submode.value = response.mode;
   }
+  if (submode.value === 'PARAGRAPH') {
+    displayPrompt.value = customParagraphPrompt;
+  } else {
+    displayPrompt.value = modePrompt.value;
+  }
+
 }
 
 onMounted(() => {
   fetchData();
+});
+
+const displayPrompt = ref(modePrompt.value);
+
+const isParagraphPromptSubmode = computed(() => {
+  return submode.value === 'PARAGRAPH';
+});
+
+const isEditing = computed(() => {
+  return !!route.params.journalId;
+});
+
+const initialPromptForWritingArea = computed(() => {
+  if (isParagraphPromptSubmode.value && !isEditing.value) {
+    return modePrompt.value;
+  }
+  return null;
 });
 
 </script>
@@ -57,9 +81,10 @@ onMounted(() => {
   <div class="container" id="container">
     <div v-if="hasSubmode" class="prompt" id="prompt" :prompt-id="promptId">
       <p class="submode-label">{{ fullSubmode }}</p>
-      <h2>{{modePrompt}}</h2>
+      <h2>{{ displayPrompt }}</h2>
     </div>
-    <WritingArea :narrative="narrative" :title="title" @update:title="title = $event" @update:narrative="narrative = $event"/>
+    <WritingArea :narrative="narrative" :title="title" :initialPrompt="initialPromptForWritingArea"
+                 @update:title="title = $event" @update:narrative="narrative = $event"/>
     <WritingSaveButton :title="title"
                        :narrative="narrative"
                        :promptId="promptId.value"
