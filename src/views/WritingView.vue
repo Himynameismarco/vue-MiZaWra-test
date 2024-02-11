@@ -4,7 +4,7 @@ import WritingArea from "@/components/WritingArea.vue";
 import WritingSaveButton from "@/components/WritingSaveButton.vue";
 import { useRoute } from 'vue-router';
 import apiClient from '../services/apiService';
-import {ref, reactive, computed, createCommentVNode, onMounted, defineProps} from 'vue';
+import {ref, reactive, computed, onMounted} from 'vue';
 
 const route = useRoute();
 const submode = ref(null);
@@ -83,7 +83,7 @@ const initialPromptForWritingArea = computed(() => {
       <p class="submode-label">{{ fullSubmode }}</p>
       <h2>{{ displayPrompt }}</h2>
     </div>
-    <WritingArea :narrative="narrative" :title="title" :initialPrompt="initialPromptForWritingArea"
+    <WritingArea :narrative="narrative" :title="title" :initialPrompt="initialPromptForWritingArea" :submode="submode"
                  @update:title="title = $event" @update:narrative="narrative = $event"/>
     <WritingSaveButton :title="title"
                        :narrative="narrative"

@@ -8,7 +8,8 @@ export default {
   props: {
     title: String,
     narrative: String,
-    initialPrompt: String
+    initialPrompt: String,
+    submode: String
   },
   methods: {
     hidePrompt(event) {
@@ -48,6 +49,25 @@ export default {
         this.timer.parentNode.style.display = 'none';
     }
 
+    const getFillColor = () => {
+      const styles = getComputedStyle(document.documentElement);
+      switch (props.submode) {
+        case 'POSITIVE':
+        case 'NEUTRAL':
+        case 'PHILOSOPHICAL':
+        case 'NEGATIVE':
+          return styles.getPropertyValue('--mode-green').trim();
+        case 'WORD':
+        case 'SENTENCE':
+        case 'PARAGRAPH':
+          return styles.getPropertyValue('--mode-salmon').trim(); // Geändert zu --mode-salmon
+        default:
+          return styles.getPropertyValue('--mode-blue').trim();
+      }
+    };
+
+    return { hover, changeBoxshadow, toggleTime, showTime, getFillColor};
+
     const initialText = computed(() => {
       return props.narrative || props.initialPrompt || '';
     });
@@ -64,7 +84,7 @@ export default {
     </div>
     <div class="icons">
       <svg class="icon" @mouseenter="hover = true" @mouseleave="hover = false" @click="hidePrompt($event);" width="21" height="21" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z" fill="#CDE82B"/>
+        <path id="prompted-svg" fill-rule="evenodd" clip-rule="evenodd" :fill="getFillColor()" d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70ZM35 49C42.732 49 49 42.732 49 35C49 27.268 42.732 21 35 21C27.268 21 21 27.268 21 35C21 42.732 27.268 49 35 49Z"/>
       </svg>
       <div @click="toggleTimer" class="timer">
         <svg class="timer" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
