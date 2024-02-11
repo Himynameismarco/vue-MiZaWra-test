@@ -52,6 +52,7 @@ p {
 
 a {
   text-decoration: none;
+  color: unset;
 }
 
 label {
@@ -161,11 +162,6 @@ button {
   grid-template-columns: auto 464px auto; /* 5 */
   grid-template-rows: 229px auto; /* 6 */
 }
-
-.logged-out-background {
-  background: radial-gradient(50% 50% at 10% 80%, rgba(205, 232, 43, 0.5) 0%, rgba(205, 232, 43, 0) 100%);
-}
-
 
 .wrapper-logged-out .content {
   position: relative;

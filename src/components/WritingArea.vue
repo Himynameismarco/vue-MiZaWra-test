@@ -40,7 +40,28 @@ export default {
     }
     watch(hover, changeBoxshadow);
 
-    return { hover, changeBoxshadow, timer, toggleTimer };
+    const getFillColor = () => {
+          const styles = getComputedStyle(document.documentElement);
+          switch (props.submode) {
+            case 'POSITIVE':
+            case 'NEUTRAL':
+            case 'PHILOSOPHICAL':
+            case 'NEGATIVE':
+              return styles.getPropertyValue('--mode-green').trim();
+            case 'WORD':
+            case 'SENTENCE':
+            case 'PARAGRAPH':
+              return styles.getPropertyValue('--mode-salmon').trim(); // Geändert zu --mode-salmon
+            default:
+              return styles.getPropertyValue('--mode-blue').trim();
+          }
+        };
+
+        const initialText = computed(() => {
+              return props.narrative || props.initialPrompt || '';
+            });
+
+    return { hover, changeBoxshadow, timer, toggleTimer, initialText, getFillColor };
   },
   mounted() {
     if (sessionStorage.getItem('timer') > 0) {
@@ -48,31 +69,6 @@ export default {
     } else {
         this.timer.parentNode.style.display = 'none';
     }
-
-    const getFillColor = () => {
-      const styles = getComputedStyle(document.documentElement);
-      switch (props.submode) {
-        case 'POSITIVE':
-        case 'NEUTRAL':
-        case 'PHILOSOPHICAL':
-        case 'NEGATIVE':
-          return styles.getPropertyValue('--mode-green').trim();
-        case 'WORD':
-        case 'SENTENCE':
-        case 'PARAGRAPH':
-          return styles.getPropertyValue('--mode-salmon').trim(); // Geändert zu --mode-salmon
-        default:
-          return styles.getPropertyValue('--mode-blue').trim();
-      }
-    };
-
-    return { hover, changeBoxshadow, toggleTime, showTime, getFillColor};
-
-    const initialText = computed(() => {
-      return props.narrative || props.initialPrompt || '';
-    });
-
-    return { hover, changeBoxshadow, toggleTime, showTime, initialText };
   }
 }
 </script>

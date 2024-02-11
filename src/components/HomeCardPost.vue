@@ -72,7 +72,7 @@ watch(() => props.entry?.body, (newBody) => {
 </script>
 
 <template>
-  <div @click="editJournal" class="item" :data-mode-color="modeColor">
+  <div @click="editJournal" class="item" :class="{'disabled' : props.entry.id.startsWith('default')}" :data-mode-color="modeColor">
     <div class="info">
       <h2>{{ entry.title }}</h2>
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +105,11 @@ watch(() => props.entry?.body, (newBody) => {
   padding: 25px 28px;
   width: var(--card-width);
   cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .item[data-mode-color^='var(--mode-green)']:hover .prompted {

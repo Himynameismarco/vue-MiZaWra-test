@@ -30,7 +30,7 @@ function register() {
 </script>
 
 <template>
-  <div class="logged-out-background">
+  <div>
   </div>
   <NavBarLoggedOut />
     <div class="wrapper-logged-out">
