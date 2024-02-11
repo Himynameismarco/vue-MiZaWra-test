@@ -12,7 +12,7 @@ function updateSettings() {
     let data = {
         lightTheme: document.querySelector('.theme-button-activated').value,
         locale: locale.value.value,
-        timer: 900000 //todo add dynamic value
+        timer: timer.value.value * 60
     };
 
     apiClient.put("/client/settings", data).then(() => {
@@ -23,7 +23,7 @@ function updateSettings() {
             sessionStorage.removeItem('lightTheme');
         }
         sessionStorage.setItem('locale', locale.value.value);
-        sessionStorage.setItem('timer', 900000); //todo add dynamic value
+        sessionStorage.setItem('timer', timer.value.value * 60);
         console.log('success');
     });
 }
@@ -47,7 +47,8 @@ onMounted(() => {
             element.selected = true;
     }
 
-    timer.value = sessionStorage.getItem('timer');
+    timer.value.value = sessionStorage.getItem('timer') / 60;
+    console.log(timer);
 });
 
 </script>
@@ -85,10 +86,13 @@ onMounted(() => {
         </select>
 
       </div>
-      <div class="timer">
+      <div class="timer-container">
         <h3>Timer</h3>
         <p>How long do you want your typical writing session to be? We love to write within 15 minutes. Select your own default timer.</p>
-        <input ref="timer" type="time" id="timer" placeholder="00:15" class="theme-button">
+        <div class="timer">
+          <input ref="timer" type="number" min="0" max="60" id="timer" placeholder="--" class="theme-button" value="15">
+          <p>minutes</p>
+        </div>
 
       </div>
 

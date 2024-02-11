@@ -39,7 +39,6 @@ function updateSettings() {
     })
     .catch((error) => {
         alert('Your old password is wrong, please try again.');
-        return;
     });
 }
 
