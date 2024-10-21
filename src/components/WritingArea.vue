@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref, watch, defineProps, computed } from 'vue';
+import { ref, watch, computed } from 'vue';
 import { startTimer, toggleTimer } from '@/services/timer';
 
 
@@ -40,15 +40,6 @@ export default {
     }
     watch(hover, changeBoxshadow);
 
-    return { hover, changeBoxshadow, timer, toggleTimer };
-  },
-  mounted() {
-    if (sessionStorage.getItem('timer') > 0) {
-        startTimer(sessionStorage.getItem('timer'), this.timer, null);
-    } else {
-        this.timer.parentNode.style.display = 'none';
-    }
-
     const getFillColor = () => {
       const styles = getComputedStyle(document.documentElement);
       switch (props.submode) {
@@ -66,13 +57,20 @@ export default {
       }
     };
 
-    return { hover, changeBoxshadow, toggleTime, showTime, getFillColor};
-
     const initialText = computed(() => {
       return props.narrative || props.initialPrompt || '';
     });
 
-    return { hover, changeBoxshadow, toggleTime, showTime, initialText };
+    return { hover, changeBoxshadow, timer, toggleTimer, initialText, getFillColor };
+  },
+  mounted() {
+    if (sessionStorage.getItem('timer') > 0) {
+        startTimer(sessionStorage.getItem('timer'), this.timer, null);
+    } else {
+        this.timer.parentNode.style.display = 'none';
+    }
+
+    document.getElementById('narrative').focus();
   }
 }
 </script>
@@ -205,7 +203,6 @@ export default {
 .writing-area #narrative {
   flex: 1;
   border: none;
-  overflow-y: scroll;
   background-color: transparent;
   line-height: 28px;
   font-size: var(--font-size-medium);
@@ -215,7 +212,6 @@ export default {
 
 .writing-area #narrative:focus {
   border: none;
-  overflow: hidden;
   outline:none;
 }
 
@@ -224,5 +220,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 </style>
