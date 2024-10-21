@@ -87,6 +87,11 @@ const router = createRouter({
       path: '/appSettings',
       name: 'appSettings',
       component: () => import('../views/AppSettingsView.vue')
+    },
+    {
+      path: '/somethingGoneWrong',
+      name: 'somethingGoneWrong',
+      component: () => import('../views/SomethingGoneWrongView.vue')
     }
   ]
 })

@@ -26,6 +26,8 @@ apiClient.interceptors.response.use(
     if (error.response && error.response.status === 401) {
         sessionStorage.removeItem('authToken');
         window.location.href = '/login';
+    } else if(error.response) {
+        window.location.href = '/somethingGoneWrong'
     }
     return Promise.reject(error);
   }
