@@ -41,25 +41,25 @@ export default {
     watch(hover, changeBoxshadow);
 
     const getFillColor = () => {
-          const styles = getComputedStyle(document.documentElement);
-          switch (props.submode) {
-            case 'POSITIVE':
-            case 'NEUTRAL':
-            case 'PHILOSOPHICAL':
-            case 'NEGATIVE':
-              return styles.getPropertyValue('--mode-green').trim();
-            case 'WORD':
-            case 'SENTENCE':
-            case 'PARAGRAPH':
-              return styles.getPropertyValue('--mode-salmon').trim(); // Geändert zu --mode-salmon
-            default:
-              return styles.getPropertyValue('--mode-blue').trim();
-          }
-        };
+      const styles = getComputedStyle(document.documentElement);
+      switch (props.submode) {
+        case 'POSITIVE':
+        case 'NEUTRAL':
+        case 'PHILOSOPHICAL':
+        case 'NEGATIVE':
+          return styles.getPropertyValue('--mode-green').trim();
+        case 'WORD':
+        case 'SENTENCE':
+        case 'PARAGRAPH':
+          return styles.getPropertyValue('--mode-salmon').trim(); // Geändert zu --mode-salmon
+        default:
+          return styles.getPropertyValue('--mode-blue').trim();
+      }
+    };
 
-        const initialText = computed(() => {
-              return props.narrative || props.initialPrompt || '';
-            });
+    const initialText = computed(() => {
+      return props.narrative || props.initialPrompt || '';
+    });
 
     return { hover, changeBoxshadow, timer, toggleTimer, initialText, getFillColor };
   },
@@ -69,6 +69,8 @@ export default {
     } else {
         this.timer.parentNode.style.display = 'none';
     }
+
+    document.getElementById('narrative').focus();
   }
 }
 </script>
@@ -201,7 +203,6 @@ export default {
 .writing-area #narrative {
   flex: 1;
   border: none;
-  overflow-y: scroll;
   background-color: transparent;
   line-height: 28px;
   font-size: var(--font-size-medium);
@@ -211,7 +212,6 @@ export default {
 
 .writing-area #narrative:focus {
   border: none;
-  overflow: hidden;
   outline:none;
 }
 
@@ -220,5 +220,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 </style>

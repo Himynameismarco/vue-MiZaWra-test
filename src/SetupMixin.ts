@@ -7,7 +7,8 @@ let isGlobalSetupExecuted = false;
 export default {
     created() {
         const pagesToIgnore = ['login', 'register', 'registerComplete', 'registerActivate', 'tokenRegenerate',
-                        'forgotPassword', 'forgotPasswordEmailSent', 'setNewPassword', 'forgotPasswordSuccess'];
+                        'forgotPassword', 'forgotPasswordEmailSent', 'setNewPassword', 'forgotPasswordSuccess',
+                        'somethingGoneWrong'];
         const route = useRoute();
         const router = useRouter();
 

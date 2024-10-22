@@ -16,8 +16,8 @@ function editJournal(event) {
         name: "edit",
         params: {
             journalId: props.entry.id,
-            submode: props.entry.promptDto.mode,
-            prompt: props.entry.promptDto.prompt
+            submode: props.entry.promptDto?.mode,
+            prompt: props.entry.promptDto?.prompt
         }
     })
 }
