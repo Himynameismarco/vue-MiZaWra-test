@@ -129,6 +129,7 @@ nav .menu .icons {
 nav .menu .icons a, nav .menu .icons button {
   margin: 0;
   padding: 0;
+  background: none;
 }
 
 nav .menu .icons a {
