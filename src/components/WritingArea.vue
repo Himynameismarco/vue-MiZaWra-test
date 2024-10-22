@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref, watch, computed } from 'vue';
+import { ref, watch, defineProps, computed } from 'vue';
 import { startTimer, toggleTimer } from '@/services/timer';
 
 
