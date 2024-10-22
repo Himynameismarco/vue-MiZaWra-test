@@ -13,8 +13,8 @@
             .then(() => {
                 router.push("/forgotPassword/emailSent")
             }).catch((error) => {
-                if (error.response.status == 404) {
-                    document.querySelector("#err-incorrect-pw").style.display = "block";
+                if (error.response.status == 400) {
+                    document.querySelector("#err-incorrect").style.display = "block";
                 }
             });
         }
@@ -47,7 +47,7 @@
 
 #err-incorrect {
   color: var(--orange);
-  margin-right: 20px;
+  margin-top: 20px;
   display: none;
 }
 
